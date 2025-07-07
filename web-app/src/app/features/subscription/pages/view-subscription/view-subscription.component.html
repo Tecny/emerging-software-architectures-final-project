@@ -1,0 +1,97 @@
+@let sub = subscriptionInfo();
+
+<div class="title-wrapper">
+  <div class="section-title">{{ 'subscription.title' | translate }}</div>
+</div>
+
+<div class="pricing-container">
+  <div class="pricing-header">
+    <p>
+      {{ 'subscription.description' | translate }}
+    </p>
+    @if (sub?.planType === 'FREE') {
+      <p>{{ 'subscription.currentFree' | translate }}</p>
+    }
+  </div>
+
+  <div class="pricing">
+    <div class="plan">
+      <h2>{{ 'subscription.plans.bronze' | translate }}</h2>
+      <div class="price">{{ 'subscription.price.bronze' | translate }}</div>
+      <ul class="features">
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.bronze1' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.bronze2' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.bronze3' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.bronze4' | translate }}</li>
+      </ul>
+      @if (sub) {
+        @if (sub.planType === 'FREE') {
+          <button (click)="upgradeSubscription('BRONZE')" [disabled]="isLoadingRequest()">
+            @if (isLoadingRequest()) {
+              <span class="spinner-default"></span>
+            } @else {
+              {{ 'subscription.upgrade.bronze' | translate }}
+            }
+          </button>
+        } @else if (sub?.planType === 'BRONZE') {
+          <div class="already-subscribed">
+            {{ 'subscription.alreadyBronze' | translate }}
+          </div>
+        }
+      }
+    </div>
+
+    <div class="plan popular">
+      <span class="popular-badge">{{ 'subscription.popular' | translate }}</span>
+      <h2>{{ 'subscription.plans.gold' | translate }}</h2>
+      <div class="price">{{ 'subscription.price.gold' | translate }}</div>
+      <ul class="features">
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.gold1' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.gold2' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.gold3' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.gold4' | translate }}</li>
+      </ul>
+      @if (sub) {
+        @if (sub.planType !== 'GOLD') {
+          <button (click)="upgradeSubscription('GOLD')" [disabled]="isLoadingRequest()">
+            @if (isLoadingRequest()) {
+              <span class="spinner-default"></span>
+            } @else {
+              {{ 'subscription.upgrade.gold' | translate }}
+            }
+          </button>
+        } @else {
+          <div class="already-subscribed">
+            {{ 'subscription.alreadyGold' | translate }}
+          </div>
+        }
+      }
+    </div>
+
+    <div class="plan">
+      <h2>{{ 'subscription.plans.silver' | translate }}</h2>
+      <div class="price">{{ 'subscription.price.silver' | translate }}</div>
+      <ul class="features">
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.silver1' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.silver2' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.silver3' | translate }}</li>
+        <li><i class="lni lni-check-circle-1"></i> {{ 'subscription.features.silver4' | translate }}</li>
+      </ul>
+      @if (sub) {
+        @if (sub.planType === 'FREE' || sub?.planType === 'BRONZE') {
+          <button (click)="upgradeSubscription('SILVER')" [disabled]="isLoadingRequest()">
+            @if (isLoadingRequest()) {
+              <span class="spinner-default"></span>
+            } @else {
+              {{ 'subscription.upgrade.silver' | translate }}
+            }
+          </button>
+        } @else if (sub?.planType === 'SILVER') {
+          <div class="already-subscribed">
+            {{ 'subscription.alreadySilver' | translate }}
+          </div>
+        }
+      }
+    </div>
+  </div>
+</div>
