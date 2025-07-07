@@ -1,0 +1,277 @@
+@use 'components/button';
+@use 'components/spinner';
+
+$font-size-title: clamp(1.1rem, 2vw + 1rem, 1.7rem);
+$font-size-players: clamp(0.85rem, 1vw + 0.8rem, 1.1rem);
+$font-size-creator: clamp(0.7rem, 0.7vw + 0.7rem, 0.95rem);
+$font-size-details: clamp(0.8rem, 1vw + 0.7rem, 1rem);
+$font-size-btn: clamp(0.9rem, 1vw + 0.8rem, 1.1rem);
+
+.room-card {
+  background-color: var(--room-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--room-card-border);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: flex-start;
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      vertical-align: middle;
+      background-color: var(--room-card-badge-bg);
+      color: var(--room-card-badge-color);
+
+      &--confirmed {
+        background: var(--room-card-badge-confirmed-bg);
+        color: var(--room-card-badge-confirmed-color);
+      }
+      &--pending {
+        background: var(--room-card-badge-pending-bg);
+        color: var(--room-card-badge-pending-color);
+      }
+    }
+  }
+
+  &__header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    font-weight: 600;
+    color: var(--room-card-title);
+    flex-grow: 1;
+  }
+
+  &__players {
+    font-size: $font-size-players;
+    font-weight: 500;
+    color: var(--room-card-title);
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-left: 12px;
+  }
+
+  &__creator {
+    font-size: $font-size-creator;
+    color: var(--room-card-creator);
+    font-style: italic;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: $font-size-details;
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--room-card-text);
+
+      strong {
+        font-weight: 500;
+      }
+
+      a {
+        color: var(--room-card-link);
+        text-decoration: underline;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--room-card-link-hover);
+        }
+      }
+    }
+
+    p:last-child {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--room-card-border);
+    justify-content: flex-end;
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      min-width: 120px;
+      text-align: center;
+
+      i {
+        margin-right: 8px;
+      }
+
+      .btn-text {
+        display: inline;
+      }
+
+      &:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+    }
+
+    .btn--primary {
+      background-color: var(--room-card-btn-primary-bg);
+      color: var(--room-card-btn-primary-color);
+
+      &:hover {
+        background-color: var(--room-card-btn-primary-hover);
+      }
+    }
+
+    .btn--danger,
+    .btn--warning,
+    .btn--secondary,
+    .btn--blockchain,
+    {
+      height: 35px;
+      padding: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+      min-width: 48px;
+
+      i {
+        font-size: 1.2rem;
+        margin-right: 0;
+      }
+      width: 35px;
+    }
+
+    .btn--danger {
+      background-color: var(--room-card-btn-danger-bg);
+      border: 1px solid var(--room-card-btn-danger-border);
+      color: var(--room-card-btn-danger-color);
+      width: 100px;
+
+      &:hover {
+        background-color: var(--room-card-btn-danger-hover);
+      }
+    }
+
+    .btn--secondary {
+      background-color: var(--room-card-btn-secondary-bg);
+      border: 1px solid var(--room-card-btn-secondary-border);
+      color: var(--room-card-btn-secondary-color);
+
+      &:hover {
+        background-color: var(--room-card-btn-secondary-hover);
+      }
+    }
+
+    .btn--blockchain {
+      background-color: var(--room-card-btn-blockchain-bg);
+      border: 1px solid var(--room-card-btn-blockchain-border);
+      color: var(--room-card-btn-blockchain-color);
+
+      &:hover {
+        background-color: var(--room-card-btn-blockchain-hover);
+      }
+    }
+
+    .btn--warning {
+      background-color: var(--room-card-btn-warning-bg);
+      border: 1px solid var(--room-card-btn-warning-border);
+      color: var(--room-card-btn-warning-color);
+      width: 100px;
+
+      &:hover {
+        background-color: var(--room-card-btn-warning-hover);
+      }
+    }
+
+    .btn--success {
+      background-color: var(--room-card-btn-success-bg);
+      color: var(--room-card-btn-success-color);
+      height: 35px;
+
+      &:hover {
+        background-color: var(--room-card-btn-success-hover);
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .room-card {
+    max-width: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .room-card__actions .btn--danger .btn-text,
+  .room-card__actions .btn--warning .btn-text,
+  .room-card__actions .btn--secondary .btn-text,
+  .room-card__actions .btn--blockchain .btn-text {
+    display: none;
+  }
+
+  .room-card__actions .btn--danger,
+  .room-card__actions .btn--warning,
+  .btn--secondary,
+  .btn--blockchain {
+    min-width: 48px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .btn {
+    padding: 0;
+    min-width: unset;
+
+    i {
+      margin-right: 0;
+    }
+  }
+}
