@@ -1,0 +1,109 @@
+<div class="title-wrapper">
+  <h2 class="section-title">
+    @if (userRole === UserRole.PLAYER) {
+      {{ 'reservations.titles.player' | translate }}
+    } @else {
+      {{ 'reservations.titles.owner' | translate }}
+    }
+  </h2>
+</div>
+
+<div class="tab-buttons tab-buttons--reservation">
+  <button [class.active]="activeTab() === 'personal'" (click)="setTab('personal')">{{ 'reservations.tabs.personal' | translate }}</button>
+  <button [class.active]="activeTab() === 'community'" (click)="setTab('community')">{{ 'reservations.tabs.community' | translate }}</button>
+</div>
+
+@if (activeTab() === 'community' && userRole === UserRole.PLAYER) {
+  <div class="sub-tab-buttons">
+    <button [class.active]="activeSubTab() === 'own'" (click)="setSubTab('own')">{{ 'reservations.subTabs.own' | translate }}</button>
+    <button [class.active]="activeSubTab() === 'join'" (click)="setSubTab('join')">{{ 'reservations.subTabs.join' | translate }}</button>
+  </div>
+}
+
+@defer (prefetch on viewport) {
+  @if (activeTab() === 'personal') {
+    @if (reservations(); as reserv) {
+      <div class="cards-grid">
+        @for (res of reserv; track res.id) {
+          <app-reservation-card [reservation]="res" />
+        } @empty {
+          @if (userRole === UserRole.PLAYER) {
+            <div class="empty-state">
+              <i class="lni lni-megaphone-1 empty-icon"></i>
+              <p>{{ 'reservations.empty.personalPlayer' | translate }}</p>
+            </div>
+          } @else if (userRole === UserRole.OWNER) {
+            <div class="empty-state">
+              <i class="lni lni-megaphone-1 empty-icon"></i>
+              <p>{{ 'reservations.empty.personalOwner' | translate }}</p>
+            </div>
+          }
+        }
+      </div>
+    } @else {
+      <div class="view-spinner view-spinner--sm">
+        <app-spinner/>
+      </div>
+    }
+  } @else if (activeTab() === 'community' && userRole === UserRole.OWNER) {
+    @if (ownerRooms(); as rooms) {
+      <div class="cards-grid">
+        @for (room of rooms; track room.id) {
+          <app-room-card [room]="room" [showStatus]="true"/>
+        } @empty {
+          <div class="empty-state">
+            <i class="lni lni-megaphone-1 empty-icon"></i>
+            <p>{{ 'reservations.empty.communityOwner' | translate }}</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="view-spinner view-spinner--sm">
+        <app-spinner/>
+      </div>
+    }
+  } @else if (activeTab() === 'community' && activeSubTab() === 'own' && userRole === UserRole.PLAYER) {
+    @if (ownRooms(); as rooms) {
+      <div class="cards-grid">
+        @for (room of rooms; track room.id) {
+          <app-room-card [room]="room" [showStatus]="true" (roomEvent)="loadOwnRooms()"/>
+        } @empty {
+          <div class="empty-state">
+            <i class="lni lni-megaphone-1 empty-icon"></i>
+            <p>{{ 'reservations.empty.communityOwn' | translate }}</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="view-spinner view-spinner--sm">
+        <app-spinner/>
+      </div>
+    }
+  } @else if (activeTab() === 'community' && activeSubTab() === 'join' && userRole === UserRole.PLAYER) {
+    @if (joinedRooms(); as rooms) {
+      <div class="cards-grid">
+        @for (room of rooms; track room.id) {
+          <app-room-card [room]="room" [showStatus]="true" (roomEvent)="loadJoinedRooms()"/>
+        } @empty {
+          <div class="empty-state">
+            <i class="lni lni-megaphone-1 empty-icon"></i>
+            <p>{{ 'reservations.empty.communityJoin' | translate }}</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="view-spinner view-spinner--sm">
+        <app-spinner/>
+      </div>
+    }
+  }
+} @placeholder {
+  <div class="empty-state">
+    <i class="lni lni-hourglass placeholder-icon"></i>
+    <p>{{ 'reservations.loading' | translate }}</p>
+  </div>
+} @loading {
+  <div class="view-spinner view-spinner--sm">
+    <app-spinner/>
+  </div>
+}
