@@ -1,0 +1,101 @@
+<div class="logo" [class.dark-theme]="isDarkTheme">
+  <img src="assets/images/dtaquito-logo2.png" alt="dtaquito-logo" class="logo-image">
+</div>
+
+<div class="main-container">
+
+  <div class="form-section">
+
+    <div class="form-header">
+      <h2>{{ 'register.title' | translate }}</h2>
+    </div>
+
+    <form class="form-body" [formGroup]="registerForm" (ngSubmit)="register()">
+
+      <div class="form-field">
+        <div class="input-icon-wrapper">
+          <input type="text" formControlName="name" required [placeholder]="'register.placeholders.name' | translate">
+          <i class="lni lni-user-4 icon"></i>
+          @if (registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty ||registerForm.get('name')?.touched)) {
+            @if (registerForm.get('name')?.errors?.["required"]) {
+              <small>{{ 'register.validation.nameRequired' | translate }}</small>
+            }
+            @if (registerForm.get('name')?.errors?.["minlength"]) {
+              <small>{{ 'register.validation.nameMin' | translate }}</small>
+            }
+          }
+        </div>
+      </div>
+
+      <div class="form-field">
+        <div class="input-icon-wrapper">
+          <input type="email" formControlName="email" required [placeholder]="'register.placeholders.email' | translate">
+          <i class="lni lni-envelope-1 icon"></i>
+          @if (registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)) {
+            @if (registerForm.get('email')?.errors?.['required']) {
+              <small>{{ 'register.validation.emailRequired' | translate }}</small>
+            } @else if (registerForm.get('email')?.errors?.['invalidEmail']) {
+              <small>{{ 'register.validation.emailInvalid' | translate }}</small>
+            }
+          }
+        </div>
+      </div>
+
+      <div class="form-field" >
+        <div class="input-icon-wrapper">
+          <input type="password" formControlName="password" required [placeholder]="'register.placeholders.password' | translate">
+          <i class="lni lni-locked-2 icon"></i>
+          @if (registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)) {
+            @if (registerForm.get('password')?.errors?.['required']) {
+              <small>{{ 'register.validation.passwordRequired' | translate }}</small>
+            } @else {
+              @if (registerForm.get('password')?.errors?.['minlength']) {
+                <small class="long-error-message-one">{{ 'register.validation.passwordMin' | translate }}</small>
+              }
+              @else  {
+                <small class="long-error-message-second">{{ 'register.validation.passwordPattern' | translate }}</small>
+              }
+            }
+          }
+        </div>
+      </div>
+
+      <div class="form-field">
+        <div class="input-icon-wrapper">
+          <select formControlName="role" required>
+            <option value="" disabled selected hidden>{{ 'register.placeholders.role' | translate }}</option>
+            <option value="PLAYER">{{ 'register.roles.PLAYER' | translate }}</option>
+            <option value="OWNER">{{ 'register.roles.OWNER' | translate }}</option>
+          </select>
+          <i class="lni lni-hierarchy-1 icon"></i>
+          @if (registerForm.get('role')?.invalid && (registerForm.get('role')?.dirty || registerForm.get('role')?.touched)) {
+            @if (registerForm.get('role')?.errors?.['required']) {
+              <small>{{ 'register.validation.roleRequired' | translate }}</small>
+            }
+          }
+        </div>
+      </div>
+
+      <button class="button-submit" [disabled]="isLoadingSubmitRequest()">
+        @if (isLoadingSubmitRequest()) {
+          <span class="spinner-default"></span>
+        } @else {
+          {{ 'register.buttons.register' | translate }}
+        }
+      </button>
+    </form>
+
+    @if (errorMessage()) {
+      <p class="error-message">{{ errorMessage() }}</p>
+    }
+
+    <p>
+      {{ 'register.alreadyAccount' | translate }}&nbsp;
+      <a routerLink="/login">{{ 'register.login' | translate }}</a>
+    </p>
+  </div>
+
+  <div class="illustration-section">
+    <img src="assets/images/register.png" alt="Register Illustration" class="illustration">
+  </div>
+</div>

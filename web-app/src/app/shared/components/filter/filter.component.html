@@ -1,0 +1,47 @@
+<div #filtersContainer class="filters-container">
+  @for (filter of config; track filter.field) {
+    <div class="filter-item">
+      @if (filter.type === 'select') {
+        <select
+          [id]="filter.field"
+          [(ngModel)]="filters[filter.field]"
+          (change)="onSelectChange(filter.field, getSelectValue($event))"
+          [disabled]="filter.field === 'gamemode' && !filters['sport']"
+        >
+          <option value="" disabled selected hidden>{{ filter.label }}</option>
+          @for (option of filter.options; track option.value) {
+            <option [value]="option.value" [disabled]="option.disabled">{{ option.label | translate }}</option>
+          }
+        </select>
+      }
+
+      @if (filter.type === 'date') {
+        <input type="date" [id]="filter.field" [(ngModel)]="filters[filter.field]" (change)="emitChanges()" [placeholder]="filter.label">
+      }
+
+      @if (filter.type === 'time') {
+        <select [id]="filter.field" [(ngModel)]="filters[filter.field]" (change)="emitChanges()">
+          <option value="" disabled selected hidden>{{ filter.label }}</option>
+          @for (hour of timeOptions; track hour) {
+            <option [value]="hour">{{ hour }}</option>
+          }
+        </select>
+      }
+
+      @if (filter.type === 'number') {
+        <input
+          type="number"
+          [id]="filter.field"
+          [(ngModel)]="filters[filter.field]"
+          (input)="emitChanges()"
+          [placeholder]="filter.label"
+          min="1">
+      }
+    </div>
+  }
+  @if (hasSelectedFilters()) {
+    <button class="clear-filters-btn" (click)="clearFilters()">
+      <i class="lni lni-funnel-1"></i>
+    </button>
+  }
+</div>

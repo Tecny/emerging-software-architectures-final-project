@@ -1,0 +1,82 @@
+@use 'abstracts/variables' as var;
+@use 'components/button';
+
+:host {
+  display: block;
+  //min-height: calc(100dvh - 4rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem auto 2rem auto;
+  position: relative;
+  width: 100%;
+
+  .button-back {
+    position: absolute;
+    left: 0;
+    margin-top: 0;
+  }
+
+  .section-title {
+    display: inline-block;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    color: var(--section-title-color);
+    position: relative;
+    letter-spacing: -0.5px;
+    transition: all 0.3s ease;
+    margin: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--section-title-underline-bg);
+      box-shadow: var(--section-title-underline-shadow);
+    }
+
+    &:hover {
+      letter-spacing: 0.5px;
+      &::after {
+        width: 80px;
+        background: var(--section-title-underline-bg);
+      }
+    }
+  }
+
+  .add-sport-btn {
+    background-color: rgba(var.$green-medium, 1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    i {
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: lighten(rgba(var.$green-medium, 1), 5%);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

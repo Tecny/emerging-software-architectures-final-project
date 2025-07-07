@@ -1,0 +1,15 @@
+@use 'abstracts/variables' as var;
+@use 'components/form';
+@use 'components/button';
+@use 'components/spinner';
+
+:host {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host::before {
+  background-color: var(--login-bg-color);
+}
