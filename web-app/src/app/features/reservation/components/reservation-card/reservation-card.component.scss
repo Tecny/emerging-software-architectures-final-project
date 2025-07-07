@@ -1,0 +1,161 @@
+@use 'components/button';
+
+$font-size-title: clamp(1.1rem, 2vw + 1rem, 1.7rem);
+$font-size-players: clamp(0.85rem, 1vw + 0.8rem, 1.1rem);
+$font-size-creator: clamp(0.7rem, 0.7vw + 0.7rem, 0.95rem);
+$font-size-details: clamp(0.8rem, 1vw + 0.7rem, 1rem);
+$font-size-btn: clamp(0.9rem, 1vw + 0.8rem, 1.1rem);
+
+.reservation-card {
+  background-color: var(--room-card-bg);
+  border: 1px solid var(--room-card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--room-card-border);
+    align-items: flex-start;
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      vertical-align: middle;
+      background-color: var(--room-card-badge-bg);
+      color: var(--room-card-badge-color);
+
+      &--confirmed { background: var(--room-card-badge-confirmed-bg); color: var(--room-card-badge-confirmed-color); }
+      &--pending { background: var(--room-card-badge-pending-bg); color: var(--room-card-badge-pending-color); }
+    }
+  }
+
+  &__header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .btn {
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+
+      i {
+        font-size: 1.2rem;
+      }
+
+      &:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+    }
+
+    .btn--qr {
+      background-color: #ffffff;
+      border: 1px solid #2196F3;
+      color: #2196F3;
+
+      &:hover {
+        background-color: #BBDEFB;
+      }
+    }
+
+    .btn--blockchain {
+      background-color: #ffffff;
+      border: 1px solid #424242;
+      color: #424242;
+      //margin-right: 0.5rem;
+
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    font-weight: 600;
+    color: var(--room-card-title);
+    flex-grow: 1;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: $font-size-details;
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--room-card-text);
+
+      strong {
+        font-weight: 500;
+      }
+
+      a {
+        color: var(--room-card-link);
+        text-decoration: underline;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--room-card-link-hover);
+        }
+      }
+    }
+
+    p:last-child {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tx-hash {
+      word-break: break-all;
+      white-space: normal;
+    }
+    .input-hex {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .reservation-card {
+    max-width: none;
+  }
+}
