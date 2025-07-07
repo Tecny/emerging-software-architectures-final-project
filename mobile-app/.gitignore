@@ -1,0 +1,73 @@
+# --- ANDROID STUDIO / GRADLE ---
+
+# Build folders
+/build/
+**/build/
+
+# Gradle
+.gradle/
+gradle-wrapper.jar
+gradlew
+gradlew.bat
+
+# Local config
+local.properties
+
+# IDE files
+.idea/
+*.iml
+
+# Room schemas
+app/schemas/
+
+# APKs
+*.apk
+*.ap_
+
+# Captures
+captures/
+output.json
+
+# Log files
+logs/
+*.log
+firebase-debug.log*
+firebase-debug.*.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- FIREBASE / GOOGLE SERVICES ---
+
+# Firebase config and keys
+.firebase/
+.firebaserc
+**/firebase.json
+**/google-services.json
+clave-servicio.json
+
+# --- NODE / JS (por si tienes alguna carpeta JS o scripts complementarios) ---
+
+# Node
+node_modules/
+bower_components/
+.npm
+.nyc_output
+.eslintcache
+.yarn-integrity
+
+# JS tools
+lib-cov/
+coverage/
+.grunt/
+.lock-wscript
+*.tgz
+
+# dotenv
+.env
+
+#VS Code
+.vscode/
+
+# Otros archivos personales
+nota.txt
