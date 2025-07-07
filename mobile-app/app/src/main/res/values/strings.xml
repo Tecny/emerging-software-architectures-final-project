@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">D\'Taquito</string>
+    <string name="enter_valid_email">Please enter a valid email</string>
+    <string name="email_sent_success">Email sent successfully</string>
+    <string name="email_send_error">Error sending email</string>
+    <string name="network_error">Network error: %1$s</string>
+    <string name="soccer">Soccer</string>
+    <string name="pool">Pool</string>
+    <string name="sign_in_message">Sign in to continue with our app</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Sign in</string>
+    <string name="new_user">New User? Sign Up!</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_message">Please register with your email to continue</string>
+    <string name="name">Name</string>
+    <string name="sign_up_back">You already have an account? Sign in</string>
+    <string name="recover_password">Recover My Password</string>
+    <string name="recover_message">Please write your email to continue</string>
+    <string name="recover_password_back">You already remember your password? Sign in</string>
+    <string name="sent">Sent</string>
+    <string name="language">Language</string>
+    <string name="sign_up_clickable">Sign Up!</string>
+    <string name="forgot_password_clickable">Forgot Password?</string>
+    <string name="sign_in_clickable">Sign in</string>
+    <string name="sign_in_clickable_forgot">Sign in</string>
+    <string name="current_subscription">Your current subscription is: %1$s</string>
+    <string name="subscription_message">Get the perfect plan as a sport spaces owner</string>
+    <string name="plan_bronze">Bronze</string>
+    <string name="plan_silver">Silver</string>
+    <string name="plan_gold">Gold</string>
+    <string name="bronze_plan_title">BRONZE PLAN</string>
+    <string name="silver_plan_title">SILVER PLAN</string>
+    <string name="gold_plan_title">GOLD PLAN</string>
+    <string name="bronze_plan_price">$ 4.99/month</string>
+    <string name="silver_plan_price">$ 9.99/month</string>
+    <string name="gold_plan_price">$ 14.99/month</string>
+    <string name="bronze_plan_details">&#8226; Add 1 sports space\n&#8226; Customization of your sports spaces\n&#8226; Greater visibility of your sports spaces\n&#8226; 24-hour customer service</string>
+    <string name="silver_plan_details">&#8226; Add 2 sports spaces\n&#8226; Customization of your sports spaces\n&#8226; Greater visibility of your sports spaces\n&#8226; 24-hour customer service</string>
+    <string name="gold_plan_details">&#8226; Add 3 sports spaces\n&#8226; Customization of your sports spaces\n&#8226; Greater visibility of your sports spaces\n&#8226; 24-hour customer service</string>
+    <string name="current_plan">Current Plan</string>
+    <string name="update_plan">Update</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="log_out">Log out</string>
+    <string name="credits">Credits</string>
+    <string name="profile">Profile</string>
+    <string name="add_credits">Add Credits</string>
+    <string name="communityrooms">Community Rooms</string>
+    <string name="sport_spaces">Sport Spaces</string>
+    <string name="subscriptions">Subscriptions</string>
+    <string name="tickets">My Tickets</string>
+    <string name="game_mode_label"> ⚽ %1$s</string>
+    <string name="price_label">%1$d credits</string>
+    <string name="ticket_number">Ticket #%1$s</string>
+    <string name="full_name_label">Full Name: %1$s</string>
+    <string name="bank_name_label">Bank: %1$s</string>
+    <string name="transfer_type_label">Transfer type: %1$s</string>
+    <string name="account_number_label">Account number: %1$s</string>
+    <string name="amount_label">Amount: %1$d</string>
+    <string name="created_label">Created at: %1$s</string>
+    <string name="status_label">Status: %1$s</string>
+    <string name="create_sport_space">Create my Sport Space</string>
+    <string name="image">Image</string>
+    <string name="price">Price</string>
+    <string name="address">Address</string>
+    <string name="description">Description</string>
+    <string name="closing_time">Closing Time</string>
+    <string name="opening_time">Opening Time</string>
+    <string name="create">Create</string>
+    <string name="select_sport">Sport:</string>
+    <string name="select_format">Game mode:</string>
+    <string name="soccer_5">Soccer 5</string>
+    <string name="soccer_7">Soccer 7</string>
+    <string name="soccer_11">Soccer 11</string>
+    <string name="pool_3">Pool 3</string>
+    <string name="full_name">Full name</string>
+    <string name="associated_banks">Associated Banks</string>
+    <string name="other_banks">Other banks</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="account_number">Account Number</string>
+    <string name="amount">Amount</string>
+    <string name="choose_bank">Choose a bank:</string>
+    <string name="interbank">Interbank</string>
+    <string name="bcp">BCP</string>
+    <string name="bbva">BBVA</string>
+    <string name="spanish">Spanish</string>
+    <string name="english">English</string>
+    <string name="my_reservations">My Reservations</string>
+    <string name="what_sport_do_you_want_to_play">What sport do you want to play?</string>
+    <string name="create_ticket">Create Ticket</string>
+    <string name="soccer_8">Soccer 8</string>
+    <string name="image_profile">Image Profile</string>
+    <string name="scan_qr">Scan QR</string>
+    
+    <!-- Register Activity Strings -->
+    <string name="role_choose_text">Choose a role: </string>
+    <string name="role_player">Player</string>
+    <string name="role_owner">Owner</string>
+    
+    <!-- Error Messages -->
+    <string name="error_name_empty">Please enter your name.</string>
+    <string name="error_name_numbers">Name cannot contain numbers.</string>
+    <string name="error_name_too_short">Name must be at least %1$d characters.</string>
+    <string name="error_name_invalid_chars">Name can only contain letters and spaces.</string>
+    <string name="error_email_empty">Please enter your email.</string>
+    <string name="error_email_invalid">Please enter a valid email.</string>
+    <string name="error_password_empty">Please enter your password.</string>
+    <string name="error_password_length">Password must be at least %1$d characters.</string>
+    <string name="error_password_uppercase">• At least 1 uppercase letter</string>
+    <string name="error_password_special">• At least 1 special character</string>
+    <string name="error_role_empty">Please select a valid role.</string>
+    
+    <!-- Success/Error Network Messages -->
+    <string name="success_register">User registered successfully.</string>
+    <string name="error_register">Error registering user.</string>
+    <string name="error_network">Network error.</string>
+    
+    <!-- Loading Messages -->
+    <string name="loading_registering_user">Registering user...</string>
+    
+    <!-- Login Activity Strings -->
+    <string name="error_login_empty_fields">Please enter your email and password.</string>
+    <string name="error_login_invalid_credentials">Invalid email or password.</string>
+    <string name="success_login">Login successful.</string>
+    <string name="error_network_timeout">Connection error. Please try again.</string>
+    <string name="error_network_general">Network error: %1$s</string>
+    <string name="loading_signing_in">Signing in...</string>
+    <string name="remember_me">Remember me</string>
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="error_password_too_short">Password must be at least 6 characters.</string>
+    <string name="user">User</string>
+    <string name="date">Date</string>
+    <string name="message">Message</string>
+    <string name="view_details">View Details</string>
+
+    <!-- Room card strings -->
+    <string name="game_mode_room">Game mode:</string>
+    <string name="date_label">Date:</string>
+    <string name="advance_label">Advance:</string>
+    <string name="sport_space_label">Sport space:</string>
+    <string name="place_label">Place:</string>
+    <string name="credits_room">credits</string>
+    <string name="no_name">No name</string>
+    <string name="no_space">No space</string>
+    <string name="no_address">No address</string>
+    <string name="not_specified">Not specified</string>
+    <string name="go_to_room">Go to room</string>
+    <string name="delete">Delete</string>
+
+    <!-- Toast messages -->
+    <string name="joined_room">You have joined the room</string>
+    <string name="could_not_join">Could not join the room</string>
+    <string name="error">Error:</string>
+
+    <!-- Room card strings with placeholders -->
+    <string name="game_mode_format">%1$s %2$s</string>
+    <string name="date_format">%1$s %2$s, %3$s - %4$s</string>
+    <string name="advance_format">%1$s %2$d %3$s</string>
+    <string name="sport_space_format">%1$s %2$s</string>
+    <string name="place_format">%1$s %2$s</string>
+
+    <!-- Reservation card strings -->
+    <string name="confirmed">Confirmed</string>
+    <string name="pending">Pending</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="personal">Personal</string>
+    <string name="community">Community</string>
+    <string name="reservation_price_label">Reservation price:</string>
+    <string name="reservation_price_format">%1$s %2$d %3$s</string>
+</resources>

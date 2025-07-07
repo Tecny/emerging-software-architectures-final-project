@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">D\'Taquito</string>
+    <string name="enter_valid_email">Por favor, ingresa un correo válido</string>
+    <string name="email_sent_success">Correo enviado con éxito</string>
+    <string name="email_send_error">Error al enviar el correo</string>
+    <string name="network_error">Error de red: %1$s</string>
+    <string name="soccer">Fútbol</string>
+    <string name="pool">Billar</string>
+    <string name="sign_in">Ingresa</string>
+    <string name="sign_in_message">Inicia sesión para continuar con nuestra aplicación</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login">Ingresa</string>
+    <string name="new_user">¿Nuevo Usuario? !Regístrate!</string>
+    <string name="sign_up">Regístrate</string>
+    <string name="sign_up_message">Por favor registrate con tu correo electrónico para continuar</string>
+    <string name="name">Nombre</string>
+    <string name="sign_up_back">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string name="recover_password">Recuperar mi contraseña</string>
+    <string name="recover_message">Por favor escribe tu email para continuar</string>
+    <string name="recover_password_back">¿Ya recuerdas tu contraseña? Inicia sesión</string>
+    <string name="sent">Enviar</string>
+    <string name="language">Idioma</string>
+    <string name="sign_up_clickable">!Regístrate!</string>
+    <string name="forgot_password_clickable">¿Olvidaste tu contraseña?</string>
+    <string name="sign_in_clickable">Inicia sesión</string>
+    <string name="sign_in_clickable_forgot">Inicia sesión</string>
+    <string name="current_subscription">Tu suscripción actual es: %1$s</string>
+    <string name="subscription_message">Consigue el plan perfecto como propietario de espacios deportivos</string>
+    <string name="plan_bronze">Bronce</string>
+    <string name="plan_silver">Plata</string>
+    <string name="plan_gold">Oro</string>
+    <string name="bronze_plan_title">PLAN BRONCE</string>
+    <string name="silver_plan_title">PLAN PLATA</string>
+    <string name="gold_plan_title">PLAN ORO</string>
+    <string name="bronze_plan_price">$ 4.99/mes</string>
+    <string name="silver_plan_price">$ 9.99/mes</string>
+    <string name="gold_plan_price">$ 14.99/mes</string>
+    <string name="bronze_plan_details">&#8226; Agrega 1 espacio deportivo\n&#8226; Personalización de tus espacios\n&#8226; Mayor visibilidad\n&#8226; Atención al cliente 24h</string>
+    <string name="silver_plan_details">&#8226; Agrega 2 espacios deportivos\n&#8226; Personalización de tus espacios\n&#8226; Mayor visibilidad\n&#8226; Atención al cliente 24h</string>
+    <string name="gold_plan_details">&#8226; Agrega 3 espacios deportivos\n&#8226; Personalización de tus espacios\n&#8226; Mayor visibilidad\n&#8226; Atención al cliente 24h</string>
+    <string name="current_plan">Plan Actual</string>
+    <string name="update_plan">Actualizar</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="log_out">Salir</string>
+    <string name="credits">Créditos</string>
+    <string name="profile">Perfil</string>
+    <string name="add_credits">Más Créditos</string>
+    <string name="communityrooms">Salas de la Comunidad</string>
+    <string name="sport_spaces">Espacios Deportivos</string>
+    <string name="subscriptions">Suscripciones</string>
+    <string name="tickets">Mis Tickets</string>
+    <string name="game_mode_label">" ⚽ %1$s"</string>
+    <string name="price_label">%1$d créditos</string>
+    <string name="ticket_number">Ticket #%1$s</string>
+    <string name="full_name_label">Nombre completo: %1$s</string>
+    <string name="bank_name_label">Banco: %1$s</string>
+    <string name="transfer_type_label">Tipo de transferencia: %1$s</string>
+    <string name="account_number_label">Número de cuenta: %1$s</string>
+    <string name="amount_label">Monto: %1$d</string>
+    <string name="created_label">Creado: %1$s</string>
+    <string name="status_label">Estado: %1$s</string>
+    <string name="create_sport_space">Crear mi Espacio Deportivo</string>
+    <string name="image">Imagen</string>
+    <string name="price">Precio</string>
+    <string name="address">Dirección</string>
+    <string name="description">Descripción</string>
+    <string name="closing_time">Hora de cierre</string>
+    <string name="opening_time">Hora de apertura</string>
+    <string name="create">Crear</string>
+    <string name="select_sport">Deporte:</string>
+    <string name="select_format">Modo de juego:</string>
+    <string name="soccer_5">Fútbol 5</string>
+    <string name="soccer_7">Fútbol 7</string>
+    <string name="soccer_8">Fútbol 8</string>
+    <string name="soccer_11">Fútbol 11</string>
+    <string name="pool_3">Billar 3</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="associated_banks">Bancos Asociados</string>
+    <string name="other_banks">Otros Bancos</string>
+    <string name="bank_name">Banco</string>
+    <string name="account_number">Número de cuenta</string>
+    <string name="amount">Monto</string>
+    <string name="choose_bank">Elige un banco:</string>
+    <string name="interbank">Interbank</string>
+    <string name="bcp">BCP</string>
+    <string name="bbva">BBVA</string>
+    <string name="spanish">Español</string>
+    <string name="english">Inglés</string>
+    <string name="my_reservations">Mis Reservas</string>
+    <string name="what_sport_do_you_want_to_play">¿Qué deporte deseas jugar?</string>
+    <string name="create_ticket">Crear Ticket</string>
+    <string name="image_profile">Image Profile</string>
+    <string name="scan_qr">Escanear QR</string>
+    
+    <!-- Register Activity Strings -->
+    <string name="role_choose_text">Elige un rol: </string>
+    <string name="role_player">Jugador</string>
+    <string name="role_owner">Propietario</string>
+    
+    <!-- Error Messages -->
+    <string name="error_name_empty">Por favor, ingresa tu nombre.</string>
+    <string name="error_name_numbers">El nombre no puede contener números.</string>
+    <string name="error_name_too_short">El nombre debe tener al menos %1$d caracteres.</string>
+    <string name="error_name_invalid_chars">El nombre solo puede contener letras y espacios.</string>
+    <string name="error_email_empty">Por favor, ingresa tu email.</string>
+    <string name="error_email_invalid">Por favor, ingresa un email válido.</string>
+    <string name="error_password_empty">Por favor, ingresa tu contraseña.</string>
+    <string name="error_password_length">La contraseña debe tener al mínimo %1$d caracteres.</string>
+    <string name="error_password_uppercase">• Al menos 1 mayúscula</string>
+    <string name="error_password_special">• Al menos 1 carácter especial</string>
+    <string name="error_role_empty">Por favor, selecciona un rol válido.</string>
+    
+    <!-- Success/Error Network Messages -->
+    <string name="success_register">Usuario registrado correctamente.</string>
+    <string name="error_register">Error al registrar usuario.</string>
+    <string name="error_network">Error de red.</string>
+    
+    <!-- Loading Messages -->
+    <string name="loading_registering_user">Registrando usuario...</string>
+    
+    <!-- Login Activity Strings -->
+    <string name="error_login_empty_fields">Por favor, ingresa tu email y contraseña.</string>
+    <string name="error_login_invalid_credentials">Usuario o contraseña incorrectos.</string>
+    <string name="success_login">Inicio de sesión exitoso.</string>
+    <string name="error_network_timeout">Error de conexión. Inténtelo nuevamente.</string>
+    <string name="error_network_general">Error de red: %1$s</string>
+    <string name="loading_signing_in">Iniciando sesión...</string>
+    <string name="remember_me">Recordar sesión</string>
+    <string name="show_password">Mostrar contraseña</string>
+    <string name="hide_password">Ocultar contraseña</string>
+    <string name="error_password_too_short">La contraseña debe tener al menos 6 caracteres.</string>
+    <string name="user">Usuario</string>
+    <string name="date">Fecha</string>
+    <string name="message">Mensaje</string>
+    <string name="view_details">Ver Detalles</string>
+
+    <!-- Room card strings -->
+    <string name="game_mode_room">Modo de juego:</string>
+    <string name="date_label">Fecha:</string>
+    <string name="advance_label">Adelanto:</string>
+    <string name="sport_space_label">Espacio deportivo:</string>
+    <string name="place_label">Lugar:</string>
+    <string name="credits_room">créditos</string>
+    <string name="no_name">Sin nombre</string>
+    <string name="no_space">Sin espacio</string>
+    <string name="no_address">Sin dirección</string>
+    <string name="not_specified">No especificado</string>
+    <string name="go_to_room">Ir a la sala</string>
+    <string name="delete">Eliminar</string>
+
+    <!-- Toast messages -->
+    <string name="joined_room">Te has unido a la sala</string>
+    <string name="could_not_join">No se pudo unir a la sala</string>
+    <string name="error">Error:</string>
+
+    <!-- Room card strings with placeholders -->
+    <string name="game_mode_format">%1$s %2$s</string>
+    <string name="date_format">%1$s %2$s, %3$s - %4$s</string>
+    <string name="advance_format">%1$s %2$d %3$s</string>
+    <string name="sport_space_format">%1$s %2$s</string>
+    <string name="place_format">%1$s %2$s</string>
+
+    <!-- Reservation card strings -->
+    <string name="confirmed">Confirmado</string>
+    <string name="pending">Pendiente</string>
+    <string name="cancelled">Cancelado</string>
+    <string name="personal">Personal</string>
+    <string name="community">Comunitaria</string>
+    <string name="reservation_price_label">Precio de reserva:</string>
+    <string name="reservation_price_format">%1$s %2$d %3$s</string>
+</resources>
