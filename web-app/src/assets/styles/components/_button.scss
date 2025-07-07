@@ -1,0 +1,209 @@
+@use 'abstracts/variables' as var;
+
+// === MIXINS ===
+@mixin button-base($bg, $color, $border: none, $hover-bg: null, $hover-border: null, $shadow: null) {
+  display: inline-block;
+  width: fit-content;
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+  background-color: $bg;
+  color: $color;
+  font-weight: 400;
+  border: $border;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+
+  @if $shadow {
+    box-shadow: $shadow;
+  }
+
+  &:hover {
+    background-color: if($hover-bg != null, $hover-bg, $bg);
+    border-color: if($hover-border != null, $hover-border, $border);
+  }
+
+  &:disabled {
+    background-color: $hover-bg;
+    border-color: $border;
+    cursor: not-allowed;
+  }
+}
+
+@mixin tab-button($active: false) {
+  background-color: #fff;
+  color: var.$green-dark;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1.56rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
+
+  @if $active {
+    background-color: var.$green-dark;
+    color: #fff;
+    box-shadow: 0 0.25rem 0.94rem rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.25rem);
+  }
+
+  &:hover:not(.active) {
+    background-color: var.$green-dark;
+    color: #fff;
+    transform: translateY(-0.125rem);
+  }
+}
+
+// === BOTONES ===
+
+.button-submit {
+  @include button-base(
+      var.$green-medium,
+      #fff,
+      none,
+      #3c9444,
+      null,
+      0 2px 8px rgba(34, 197, 94, 0.15)
+  );
+}
+
+.button-submit--danger {
+  @include button-base(
+      #dc2626,
+      #fff,
+      none,
+      #b91c1c,
+      null,
+      0 2px 8px rgba(220, 38, 38, 0.15)
+  );
+}
+
+.button-submit--warning {
+  @include button-base(
+      #f59e42,
+      #fff,
+      none,
+      #d97706,
+      null,
+      0 2px 8px rgba(245, 158, 66, 0.15)
+  );
+}
+
+.button-submit--info {
+  @include button-base(
+      #3b82f6,
+      #fff,
+      none,
+      #2563eb,
+      null,
+      0 2px 8px rgba(59, 130, 246, 0.15)
+  );
+}
+
+
+.button-link {
+  background: none;
+  border: none;
+  color: var(--login-link-color );
+  cursor: pointer;
+  font-size: 0.85rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// === TAB BUTTONS ===
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  &--profile {
+    position: absolute;
+    bottom: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  &--reservation {
+    margin: 1.5rem 0;
+  }
+
+  button {
+    @include tab-button();
+
+    &.active {
+      @include tab-button($active: true);
+    }
+  }
+}
+
+.sub-tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+
+  button {
+    background-color: #fff;
+    color: var.$green-black;
+    border: none;
+    padding: 0.5rem 1.05rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
+
+    &:hover:not(.active) {
+      background-color: var.$green-medium;
+      color: #fff;
+    }
+
+    &.active {
+      background-color: var.$green-medium;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.button-back {
+  @include button-base(
+      var(--bg-color),
+      var(--button-back-color),
+      none,
+      none,
+      var(--button-back-color),
+  );
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-top: 1rem;
+
+  i {
+    font-size: 1.2rem;
+    color: var(--button-back-color),
+  }
+
+  @media (max-width: 720px) {
+    p {
+      display: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+}

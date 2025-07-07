@@ -1,0 +1,133 @@
+<header class="header-container" [class.dark-theme]="isDarkTheme">
+
+  <div class="logo" [class.dark-theme]="isDarkTheme">
+    <img src="assets/images/dtaquito-logo2.png" alt="Logo" class="logo-image"/>
+  </div>
+
+  <a class="menu__item menu-toggle" (click)="toggleMenu()">
+    <i class="lni lni-menu-meatballs-2 menu__icon"></i>
+  </a>
+
+  @if (isMenuOpen) {
+    <div class="backdrop" (click)="toggleMenu()"></div>
+  }
+
+  <nav class="menu" [class.open]="isMenuOpen">
+    @switch (role()) {
+      @case ('PLAYER') {
+        <a class="menu__item"
+           routerLink="/home"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-home-2 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.home' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/sport-spaces"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-busket-ball menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.spaces' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/rooms"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-hand-shake menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.rooms' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/reservations"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-calendar-days menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.reservations' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/profile"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-user-4 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.profile' | translate }}</span>
+        </a>
+      }
+      @case ('OWNER') {
+        <a class="menu__item"
+           routerLink="/home"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-home-2 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.home' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/sport-spaces"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-busket-ball menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.spaces' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/reservations"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-calendar-days menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.reservations' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/subscription"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-crown-3 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.subscription' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/bank-transfer"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-dollar-circle menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.bankTransfer.requests' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/profile"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-user-4 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.profile' | translate }}</span>
+        </a>
+      }
+      @case ('ADMIN') {
+        <a class="menu__item"
+           routerLink="/home"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-home-2 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.home' | translate }}</span>
+        </a>
+        <a class="menu__item"
+           routerLink="/bank-transfer"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMenuOnNavigate()">
+          <i class="lni lni-ticket-1 menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.bankTransfer.attend' | translate }}</span>
+        </a>
+        <button class="menu__item" (click)="logout()">
+          <i class="lni lni-exit menu__icon"></i>
+          <span class="menu__label">{{ 'header.items.logout' | translate }}</span>
+        </button>
+      }
+    }
+  </nav>
+</header>

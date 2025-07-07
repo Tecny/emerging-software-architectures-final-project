@@ -1,0 +1,105 @@
+<div class="logo" [class.dark-theme]="isDarkTheme">
+  <img src="assets/images/dtaquito-logo2.png" alt="dtaquito-logo" class="logo-image">
+</div>
+
+<div class="main-container">
+
+  <div class="illustration-section">
+    <img src="assets/images/login.png" alt="Login Illustration" class="illustration">
+  </div>
+
+  <div class="form-section">
+
+    <div class="form-header">
+      <h2>{{ 'login.title' | translate }}</h2>
+    </div>
+
+    <form class="form-body" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-field">
+        <div class="input-icon-wrapper">
+          <input type="email" formControlName="email" [placeholder]="'login.placeholders.email' | translate">
+          <i class="lni lni-envelope-1 icon"></i>
+          @if (loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)) {
+            @if (loginForm.get('email')?.errors?.['required']) {
+              <small>{{ 'login.validation.emailRequired' | translate }}</small>
+            }
+            @if (loginForm.get('email')?.errors?.['invalidEmail']) {
+              <small>{{ 'login.validation.emailInvalid' | translate }}</small>
+            }
+          }
+        </div>
+      </div>
+
+      <div class="form-field">
+        <div class="input-icon-wrapper">
+          <input type="password" formControlName="password" required [placeholder]="'login.placeholders.password' | translate">
+          <i class="lni lni-locked-2 icon"></i>
+          @if (loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty ||loginForm.get('password')?.touched)) {
+            @if (loginForm.get('password')?.errors?.['required']) {
+              <small>{{ 'login.validation.passwordRequired' | translate }}</small>
+            }
+          }
+        </div>
+      </div>
+
+      <button type="submit" class="button-submit" [disabled]="isLoadingSignInRequest()">
+        @if (isLoadingSignInRequest()) {
+          <span class="spinner-default"></span>
+        } @else {
+          {{ 'login.buttons.login' | translate }}
+        }
+      </button>
+    </form>
+
+    @if (errorMessage()) {
+      <p class="error-message">{{ 'login.error.invalidCredentials' | translate }}</p>
+    }
+
+    <p>
+      {{ 'login.noAccount' | translate }}&nbsp;
+      <a routerLink="/register">{{ 'login.buttons.register' | translate }}</a>
+    </p>
+
+    <button class="button-link" (click)="openRecoverModal()">{{ 'login.buttons.forgot' | translate }}</button>
+  </div>
+</div>
+
+@if (showRecoverModal) {
+  <app-modal [width]="'450px'" [variant]="'default'" (closeModal)="closeRecoverModal()">
+    <ng-container modal-header>{{ 'login.recover.title' | translate }}</ng-container>
+    <ng-container modal-body>
+      <form [formGroup]="recoverPasswordForm"
+            (ngSubmit)="forgotPassword(recoverPasswordForm.get('email')?.getRawValue())"
+            id="recoverForm">
+        <div class="form-field">
+          <div class="input-icon-wrapper">
+            <input id="emailRecover" type="email" formControlName="email" required [placeholder]="'login.placeholders.emailRecover' | translate" />
+            <i class="lni lni-envelope-1 icon"></i>
+          </div>
+          @if (recoverPasswordForm.get('email')?.invalid && (recoverPasswordForm.get('email')?.dirty || recoverPasswordForm.get('email')?.touched)) {
+            @if (recoverPasswordForm.get('email')?.errors?.['required']) {
+              <small>{{ 'login.validation.emailRequired' | translate }}</small>
+            } @else if (recoverPasswordForm.get('email')?.errors?.['invalidEmail']) {
+              <small>{{ 'login.validation.emailInvalid' | translate }}</small>
+            }
+          }
+          @if (correctMessage()) {
+            <p class="correct-message">{{ 'login.recover.success' | translate }}</p>
+          }
+        </div>
+      </form>
+    </ng-container>
+    <ng-container modal-footer>
+      <button type="submit"
+              class="button-submit"
+              form="recoverForm"
+              [disabled]="isLoadingRecoverRequest()">
+        @if (isLoadingRecoverRequest()) {
+          <span class="spinner-default"></span>
+        } @else {
+          {{ 'login.buttons.send' | translate }}
+        }
+      </button>
+    </ng-container>
+  </app-modal>
+}

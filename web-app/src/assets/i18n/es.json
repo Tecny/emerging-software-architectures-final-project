@@ -1,0 +1,623 @@
+{
+  "common": {
+    "spinner": {
+      "loading": "Cargando..."
+    },
+    "back": "Regresar"
+  },
+  "toastStatus": {
+    "success": "Éxito",
+    "error": "Error",
+    "warning": "Advertencia"
+  },
+  "sports": {
+    "futbol": "Fútbol",
+    "billar": "Billar"
+  },
+  "gamemodes": {
+    "futbol11": "Fútbol 11",
+    "futbol8": "Fútbol 8",
+    "futbol7": "Fútbol 7",
+    "futbol5": "Fútbol 5",
+    "billar3": "Billar 3"
+  },
+  "months": {
+    "enero": "Enero",
+    "febrero": "Febrero",
+    "marzo": "Marzo",
+    "abril": "Abril",
+    "mayo": "Mayo",
+    "junio": "Junio",
+    "julio": "Julio",
+    "agosto": "Agosto",
+    "septiembre": "Septiembre",
+    "octubre": "Octubre",
+    "noviembre": "Noviembre",
+    "diciembre": "Diciembre"
+  },
+  "blockchain": {
+    "data": "Datos en la blockchain",
+    "txHash": "Hash de transacción",
+    "inputHex": "Input Hex",
+    "spaceId": "ID Espacio",
+    "userId": "ID Usuario",
+    "loading": "Cargando datos, por favor espere...",
+    "accept": "Aceptar"
+  },
+  "qr": {
+    "title": "QR de la reserva",
+    "notAvailable": "El código QR estará disponible una hora antes del inicio de tu reserva.",
+    "accept": "Aceptar"
+  },
+  "externalPages": {
+    "notFound": {
+      "title": "Página no encontrada",
+      "message": "La página que buscas no existe o fue movida.",
+      "button": "Volver al inicio"
+    },
+    "unauthorized": {
+      "title": "Acceso no autorizado",
+      "message": "No tienes permisos para ver esta página.",
+      "button": "Volver al inicio"
+    },
+    "correctPayment": {
+      "title": "¡Pago correcto!",
+      "message": "¡Gracias por completar tu pago seguro! Puedes cerrar esta ventana y volver a la aplicación."
+    },
+    "errorPayment": {
+      "title": "¡Pago fallido!",
+      "message": "Desafortunadamente, tu pago no pudo ser procesado. Por favor, intenta nuevamente"
+    }
+  },
+  "header": {
+    "items": {
+      "home": "Inicio",
+      "spaces": "Espacios deportivos",
+      "rooms": "Salas comunidad",
+      "reservations": "Reservas",
+      "subscription": "Suscripción",
+      "bankTransfer": {
+        "requests": "Retiro de créditos",
+        "attend" : "Tickets"
+      },
+      "profile": "Perfil",
+      "logout": "Salir"
+    }
+  },
+  "home": {
+    "welcomeTitle": "Bienvenido a la plataforma",
+    "welcomeMsg": "¡Explora nuestra plataforma y descubre todo lo que tenemos para ofrecerte!",
+    "features": {
+      "spacesTitle": "Espacios deportivos",
+      "spacesPlayer": "Explora la amplia variedad de espacios deportivos y reserva al instante. ¡Tu próximo partido te espera!",
+      "spacesOwner": "Administra y publica tus espacios deportivos para que los jugadores puedan reservarlos fácilmente.",
+      "spacesCta": "Ir a espacios deportivos",
+      "roomsTitle": "Salas comunidad",
+      "roomsMsg": "Únete a partidas y reservas de la comunidad, conoce nuevos compañeros y potencia tu vida deportiva.",
+      "roomsCta": "Ir a salas comunidad",
+      "reservationsPlayerTitle": "Tus reservas",
+      "reservationsPlayerMsg": "Consulta tus horarios, modifica tus planes y prepárate para la acción. Tus próximos partidos te esperan.",
+      "reservationsOwnerTitle": "Reservas en tus espacios",
+      "reservationsOwnerMsg": "Revisa y gestiona las reservas realizadas en tus espacios deportivos.",
+      "reservationsCta": "Ir a mis reservas",
+      "withdrawOwnerTitle": "Tus tickets de retiro",
+      "withdrawOwnerMsg": "Crea y gestiona tus tickets de retiro de créditos para obtener tus ganancias.",
+      "withdrawAdminTitle": "Tickets de retiro",
+      "withdrawAdminMsg": "Administra y aprueba los tickets de retiro de créditos pendientes de los propietarios.",
+      "withdrawCta": "Ir a tickets de retiro"
+    }
+  },
+  "spaces": {
+    "title": "Espacios deportivos",
+    "add": "Añadir espacio",
+    "filter": {
+      "sport": "Deporte",
+      "gamemode": "Modo de juego",
+      "price": "Precio máximo",
+      "openTime": "Hora de apertura"
+    },
+    "card": {
+      "priceUnit": "créditos",
+      "delete": "Eliminar",
+      "deleteTitle": "Confirmar eliminación",
+      "deleteMsg": "¿Estás seguro que deseas eliminar este espacio deportivo?",
+      "deleteSuccess": "Espacio deportivo eliminado correctamente",
+      "deleteError": "Error al eliminar el espacio deportivo"
+    },
+    "detail": {
+      "tabs": {
+        "reservation": "Reserva",
+        "info": "Información"
+      },
+      "availability": {
+        "date": "Fecha",
+        "actions": {
+          "confirm": "Confirmar horas",
+          "reserve": "Reservar"
+        },
+        "legend": {
+          "available": "Disponible",
+          "reserved": "Reservado"
+        },
+        "reservation": {
+          "title": "Confirmar reserva",
+          "placeholders": {
+            "name": "Nombre de la reserva",
+            "type": "Tipo de reserva"
+          },
+          "types": {
+            "personal": "Personal",
+            "community": "Comunidad"
+          },
+          "summary": {
+            "playDay": "Día de juego",
+            "schedule": "Horario seleccionado",
+            "cost": "Costo de la reserva",
+            "credits": "créditos",
+            "indication": {
+              "personal": "(Adelanto del 50%)",
+              "community": "(Adelanto por persona)"
+            }
+          }
+        },
+        "validation": {
+          "hoursRequired": "Debes seleccionar al menos un horario antes de confirmar.",
+          "weekRange": "La disponibilidad semanal de este espacio deportivo ha finalizado.\n Podrás consultarla nuevamente a partir del lunes a las 07:00 horas.",
+          "nameRequired": "El nombre de la reserva es obligatorio",
+          "nameMin": "Mínimo 5 caracteres",
+          "nameMax": "Máximo 25 caracteres",
+          "typeRequired": "El tipo de reserva es obligatorio"
+        },
+        "toast": {
+          "ownerNotAllowed": "Los propietarios no pueden seleccionar horarios",
+          "sameDayOnly": "Solo puedes seleccionar horas para el mismo día",
+          "maxTwoHours": "Solo puedes seleccionar un máximo de 2 horas",
+          "consecutiveHours": "Las horas seleccionadas deben ser consecutivas",
+          "remainingConsecutive": "Las horas restantes deben ser consecutivas",
+          "selectAtLeastOne": "Selecciona al menos una hora para reservar",
+          "notEnoughCredits": "No tienes créditos suficientes para crear la reserva",
+          "reservationCreated": "Reserva creada correctamente",
+          "reservationError": "Error al crear la reserva"
+        }
+      },
+      "info": {
+        "title": "Detalles",
+        "gamemode": "Modo de juego",
+        "price": "Precio",
+        "priceUnit": "créditos por hora",
+        "creditRate": "*1 crédito = 1 sol",
+        "schedule": "Horario",
+        "locationTitle": "Ubicación",
+        "address": "Dirección",
+        "additionalTitle": "Adicional",
+        "description": "Descripción"
+      }
+    },
+    "create": {
+      "title": "Crear Espacio Deportivo",
+      "fields": {
+        "name": "Nombre",
+        "price": "Precio",
+        "sport": "Deporte",
+        "gamemode": "Modo de juego",
+        "openTime": "Hora de apertura",
+        "closeTime": "Hora de cierre",
+        "description": "Información adicional",
+        "address": "Dirección seleccionada",
+        "addressPlaceholder": "Aquí aparecerá tu ubicación seleccionada en el mapa",
+        "imageName": "Nombre de la imagen",
+        "imagePlaceholder": "De click acá para insertar su imagen"
+      },
+      "errors": {
+        "nameRequired": "Debes ingresar un nombre",
+        "nameMin": "El nombre debe tener mínimo 7 caracteres",
+        "priceRequired": "Debes ingresar un precio",
+        "priceMin": "El precio debe ser mayor o igual a 25",
+        "sportRequired": "Debes seleccionar un deporte",
+        "gamemodeRequired": "Debes seleccionar un modo de juego",
+        "openTimeRequired": "Debes seleccionar una hora de apertura",
+        "closeTimeRequired": "Debes seleccionar una hora de cierre",
+        "closeBeforeOpen": "La hora de cierre debe ser mayor que la de apertura",
+        "lessThanFiveHours": "Debe haber al menos 5 horas de diferencia",
+        "descriptionRequired": "Debes ingresar una descripción",
+        "descriptionMin": "La descripción debe tener mínimo 10 caracteres",
+        "locationRequired": "Debes seleccionar una ubicación en el mapa",
+        "imageRequired": "Debes seleccionar una imagen"
+      },
+      "actions": {
+        "create": "Crear"
+      },
+      "toasts": {
+        "success": "Espacio deportivo creado correctamente",
+        "error": "Error al crear el espacio deportivo"
+      }
+    },
+    "dashboard": {
+      "title": "Métricas del espacio deportivo",
+      "visitorsByMonth": "Cantidad de visitantes por mes en el año {{year}}",
+      "noData": "No hay métricas generadas aún."
+    },
+    "emptyOwner": "No tienes espacios deportivos registrados, empieza agregando uno mejorando tu suscripción",
+    "emptyPlayer": "No se encontraron espacios deportivos :(",
+    "loading": "Preparando carga de espacios deportivos..."
+  },
+  "rooms": {
+    "title": "Salas comunidad",
+    "filter": {
+      "sport": "Deporte",
+      "gamemode": "Modo de juego",
+      "gameday": "Fecha de juego",
+      "startTime": "Hora inicio",
+      "maxAmount": "Adelanto máximo"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pendiente",
+        "CONFIRMED": "Confirmada"
+      },
+      "fields": {
+        "mode": "Modo de juego",
+        "date": "Fecha",
+        "advance": "Adelanto",
+        "sportSpace": "Espacio deportivo",
+        "place": "Lugar"
+      },
+      "actions": {
+        "goToRoom": "Ir a la sala",
+        "delete": "Eliminar",
+        "leave": "Salir",
+        "join": "Unirse"
+      },
+      "modals": {
+        "joinTitle": "Unirte a la sala",
+        "joinMsg": "¿Quieres unirte a esta sala comunidad por un costo de {{amount}} créditos?",
+        "leaveTitle": "Confirmar salida",
+        "leaveMsg": "¿Estás seguro que deseas salir de esta sala comunidad? Se reembolsarán tus créditos.",
+        "deleteTitle": "Confirmar eliminación",
+        "deleteMsg": "¿Estás seguro que deseas eliminar esta sala comunidad? Se reembolsarán tus créditos."
+      },
+      "toast": {
+        "successJoin": "Te has unido a la sala comunidad exitosamente",
+        "errorJoin": "No se pudo unir a la sala comunidad",
+        "successLeave": "Has salido de la sala comunidad exitosamente",
+        "errorLeave": "No se pudo salir de la sala comunidad",
+        "successDelete": "Sala comunidad eliminada exitosamente",
+        "errorDelete": "No se pudo eliminar la sala comunidad"
+      }
+    },
+    "detail": {
+      "tabs": {
+        "chat": "Ir al chat",
+        "info": "Ir a los detalles"
+      },
+      "info": {
+        "title": "Detalles",
+        "gamemode": "Modo de juego",
+        "date": "Fecha",
+        "place": "Lugar"
+      },
+      "playerList": {
+        "title": "Jugadores {{count}}",
+        "creator": "Creador"
+      },
+      "chat": {
+        "empty": "Aún no hay mensajes en el chat",
+        "placeholder": "Escribe un mensaje...",
+        "send": "Enviar"
+      }
+    },
+    "empty": "No hay salas comunidad disponibles en este momento :(",
+    "loading": "Preparando carga de salas comunidad..."
+  },
+  "reservations": {
+    "titles": {
+      "player": "Mis reservas",
+      "owner": "Reservas en tus espacios deportivos"
+    },
+    "tabs": {
+      "personal": "Personal",
+      "community": "Comunidad"
+    },
+    "subTabs": {
+      "own": "Creadas por mí",
+      "join": "Salas unidas"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pendiente",
+        "CONFIRMED": "Confirmada"
+      },
+      "fields": {
+        "mode": "Modo de juego",
+        "date": "Fecha",
+        "price": "Precio de la reserva",
+        "sportSpace": "Espacio deportivo",
+        "place": "Lugar"
+      },
+      "actions": {
+        "goToSpace": "Ir al espacio"
+      }
+    },
+    "empty": {
+      "personalPlayer": "No tienes reservas personales realizadas",
+      "personalOwner": "Aún no se han realizado reservas personales en tus espacios deportivos",
+      "communityOwner": "Aún no se han creado salas comunidad en tus espacios deportivos",
+      "communityOwn": "No tienes salas comunidad creadas",
+      "communityJoin": "No te has unido a ninguna sala comunidad"
+    },
+    "loading": "Preparando carga de reservas..."
+  },
+  "subscription": {
+    "title": "Suscripción",
+    "description": "Mejora la visibilidad y gestión de tus espacios deportivos con los siguientes planes.",
+    "currentFree": "Actualmente tienes la suscripción gratuita, que te da un mes de prueba sin costo",
+    "plans": {
+      "bronze": "BRONCE",
+      "silver": "PLATA",
+      "gold": "ORO"
+    },
+    "price": {
+      "bronze": "S/20.00 al mes",
+      "silver": "S/36.00 al mes",
+      "gold": "S/55.00 al mes"
+    },
+    "features": {
+      "bronze1": "Solo 1 espacio deportivo",
+      "bronze2": "Personaliza tus espacios deportivos",
+      "bronze3": "Visibilidad reducida",
+      "bronze4": "Servicio al cliente 24 horas",
+      "silver1": "Hasta 2 espacios deportivos",
+      "silver2": "Personaliza tus espacios deportivos",
+      "silver3": "Visibilidad media",
+      "silver4": "Servicio al cliente 24 horas",
+      "gold1": "Hasta 3 espacios deportivos",
+      "gold2": "Personaliza tus espacios deportivos",
+      "gold3": "Visibilidad destacada",
+      "gold4": "Servicio al cliente 24 horas"
+    },
+    "popular": "Más Popular",
+    "upgrade": {
+      "bronze": "Mejorar a bronce",
+      "silver": "Mejorar a plata",
+      "gold": "Mejorar a oro"
+    },
+    "alreadyBronze": "Ya tienes este plan",
+    "alreadySilver": "Ya tienes este plan",
+    "alreadyGold": "Ya tienes el mejor plan, ¡disfrútalo! 🎉"
+  },
+  "tickets": {
+    "title": "Retiro de créditos",
+    "tabs": {
+      "pending": "Pendiente",
+      "confirmed": "Confirmado"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pendiente",
+        "CONFIRMED": "Confirmado",
+        "DEFERRED": "Diferido"
+      },
+      "fields": {
+        "ticketNumber": "Ticket",
+        "fullName": "Nombre",
+        "bankName": "Banco",
+        "transferType": "Tipo de transferencia",
+        "accountNumber": "Número de cuenta",
+        "amount": "Monto",
+        "credits": "créditos"
+      },
+      "actions": {
+        "confirm": "Confirmar",
+        "defer": "Diferir"
+      },
+      "modals": {
+        "confirmTitle": "Confirmar ticket",
+        "confirmMsg": "¿Estás seguro de que deseas confirmar este ticket de retiro de créditos?",
+        "deferTitle": "Diferir ticket",
+        "deferMsg": "¿Estás seguro de que deseas diferir este ticket de retiro de créditos?"
+      },
+      "toast": {
+        "successConfirm": "Ticket confirmado exitosamente",
+        "errorConfirm": "Error al confirmar el ticket",
+        "successDefer": "Ticket diferido exitosamente",
+        "errorDefer": "Error al diferir el ticket"
+      }
+    },
+    "modal": {
+      "title": "Crear ticket de retiro",
+      "bankType": {
+        "associated": "Bancos asociados",
+        "other": "Otros bancos"
+      },
+      "fields": {
+        "fullName": "Nombre completo",
+        "bankName": "Banco",
+        "accountNumber": "Número de cuenta",
+        "accountNumberOther": "Número de cuenta interbancario"
+      },
+      "summary": {
+        "amount": "Monto a retirar",
+        "credits": "créditos"
+      },
+      "actions": {
+        "create": "Crear"
+      },
+      "validation": {
+        "fullNameRequired": "El nombre completo es obligatorio",
+        "fullNameMin": "El nombre completo debe tener al menos 5 caracteres",
+        "bankNameRequired": "El banco es obligatorio",
+        "accountNumberRequired": "El número de cuenta es obligatorio",
+        "accountNumberPattern": "El número de cuenta solo debe contener números",
+        "accountNumberLength": "La longitud del número de cuenta debe ser de {{expectedLength}} dígitos"
+      }
+    },
+    "toast": {
+      "successCreate": "Solicitud de transferencia creada exitosamente.",
+      "errorCreate": "Error al crear la solicitud de transferencia."
+    },
+    "empty": {
+      "owner": "No tienes tickets de retiro de créditos solicitados",
+      "admin": "No tienes tickets de retiro de créditos por atender"
+    },
+    "loading": "Preparando carga de tickets de retiro..."
+  },
+  "profile": {
+    "title": "Perfil",
+    "role": {
+      "player": "Jugador",
+      "owner": "Propietario",
+      "user": "Usuario"
+    },
+    "tabs": {
+      "info": "Información",
+      "prefs": "Preferencias"
+    },
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "password": "Contraseña",
+      "credits": "Créditos",
+      "amount": "Monto a recargar"
+    },
+    "placeholders": {
+      "newName": "Nuevo nombre",
+      "newEmail": "Nuevo email",
+      "newPassword": "Nueva contraseña",
+      "amount": "Monto a recargar"
+    },
+    "actions": {
+      "recharge": "Recargar créditos",
+      "accept": "Aceptar",
+      "logout": "Cerrar sesión"
+    },
+    "theme": {
+      "label": "Tema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    },
+    "language": {
+      "label": "Idioma"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "nameMin": "Debe tener mínimo 3 letras",
+      "emailRequired": "El correo electrónico es obligatorio",
+      "emailInvalid": "Formato inválido",
+      "passwordRequired": "La contraseña es obligatoria",
+      "passwordMin": "Mínimo 16 caracteres",
+      "passwordPattern": "Debe incluir mayúscula, número y caracter especial",
+      "amountRequired": "El monto es obligatorio",
+      "amountMin": "El monto debe ser al menos 1"
+    },
+    "toast": {
+      "nameUpdated": "Nombre actualizado correctamente",
+      "emailUpdated": "Correo electrónico actualizado correctamente",
+      "passwordUpdated": "Contraseña actualizada correctamente",
+      "sessionClosed": "Has cerrado sesión correctamente",
+      "nameRepeat": "No se puede repetir el nombre ya existente",
+      "emailRepeat": "No se puede repetir el email ya existente",
+      "nameUpdateError": "Hubo un error al actualizar el nombre",
+      "emailUpdateError": "Hubo un error al actualizar el correo electrónico",
+      "passwordUpdateError": "Hubo un error al actualizar la contraseña",
+      "paymentOpenError": "Hubo un error al abrir la ventana de pago"
+    }
+  },
+  "login": {
+    "title": "¡Bienvenido!",
+    "fields": {
+      "email": "Correo electrónico",
+      "password": "Contraseña"
+    },
+    "placeholders": {
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "emailRecover": "Ingresa tu correo electrónico"
+    },
+    "validation": {
+      "emailRequired": "El correo electrónico es obligatorio",
+      "emailInvalid": "Formato de correo electrónico no válido",
+      "passwordRequired": "La contraseña es obligatoria"
+    },
+    "buttons": {
+      "login": "Ingresar",
+      "register": "Regístrate",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "send": "Enviar"
+    },
+    "recover": {
+      "title": "Recuperar contraseña",
+      "success": "Se envió un enlace de recuperación al correo"
+    },
+    "noAccount": "¿No tienes una cuenta?",
+    "error": {
+      "invalidCredentials": "Credenciales incorrectas"
+    },
+    "toast": {
+      "successLogin": "Inicio de sesión correcto",
+      "errorLogin": "Inicio de sesión fallido",
+      "successRecover": "Se envió un enlace de recuperación a tu correo",
+      "errorRecover": "Error al enviar el correo de recuperación"
+    }
+  },
+  "register": {
+    "title": "¡Crea tu cuenta!",
+    "fields": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "role": "Rol"
+    },
+    "placeholders": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "role": "Rol"
+    },
+    "roles": {
+      "PLAYER": "Jugador",
+      "OWNER": "Propietario"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "nameMin": "Debe tener mínimo 3 letras",
+      "emailRequired": "El correo electrónico es obligatorio",
+      "emailInvalid": "Formato no válido",
+      "passwordRequired": "La contraseña es obligatoria",
+      "passwordMin": "Mínimo 16 caracteres",
+      "passwordPattern": "Debe incluir mayúscula, número y caracter especial",
+      "roleRequired": "El rol es obligatorio"
+    },
+    "buttons": {
+      "register": "Registrarse"
+    },
+    "alreadyAccount": "¿Ya tienes cuenta?",
+    "login": "Inicia sesión",
+    "toast": {
+      "success": "Registro exitoso",
+      "error": "Registro fallido",
+      "emailExists": "Ya existe un usuario con este correo electrónico"
+    }
+  },
+  "resetPassword": {
+    "title": "Cambio de contraseña",
+    "description": "Por favor, ingresa tu nueva contraseña",
+    "fields": {
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña"
+    },
+    "validation": {
+      "passwordRequired": "La contraseña es obligatoria",
+      "passwordMin": "La contraseña debe tener al menos 16 caracteres",
+      "passwordPattern": "Debe incluir mayúscula, número y caracter especial",
+      "confirmPasswordRequired": "La confirmación es obligatoria",
+      "passwordsNotMatch": "Las contraseñas no coinciden"
+    },
+    "buttons": {
+      "update": "Actualizar"
+    },
+    "toast": {
+      "success": "Contraseña actualizada correctamente",
+      "error": "Error al actualizar la contraseña"
+    }
+  }
+}

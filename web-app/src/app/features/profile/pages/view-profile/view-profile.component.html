@@ -1,0 +1,205 @@
+@let user = userInfo();
+
+<div class="profile-panel">
+  <div class="panel-header">
+    <div class="avatar-section">
+      <h2>{{ 'profile.title' | translate }}</h2>
+      <span class="user-role">
+        @if (user) {
+          {{ user.roleType === 'PLAYER' ? ('profile.role.player' | translate) : ('profile.role.owner' | translate) }}
+        } @else {
+          {{ 'profile.role.user' | translate }}
+        }
+      </span>
+      <img src="assets/images/avatar.png" alt="Avatar" class="avatar" />
+    </div>
+    <div class="tab-buttons tab-buttons--profile">
+      <button [class.active]="activeTab() === 'info'" (click)="setTab('info')">{{ 'profile.tabs.info' | translate }}</button>
+      <button [class.active]="activeTab() === 'prefs'" (click)="setTab('prefs')">{{ 'profile.tabs.prefs' | translate }}</button>
+    </div>
+  </div>
+
+  <div class="panel-content">
+    <!-- Información del perfil -->
+    @if (activeTab() === 'info') {
+      @if (user) {
+        <div class="profile-fields" [formGroup]="profileForm">
+
+          <!-- Nombre -->
+          <div class="profile-field">
+            @if (!editingName) {
+              <label>{{ 'profile.fields.name' | translate }}</label>
+              <span>{{ user.name }}</span>
+              <button type="button" (click)="editingName = !editingName">
+                <i class="lni lni-pencil-1"></i>
+              </button>
+            } @else {
+              <div class="input-group">
+                <input type="text" formControlName="name" placeholder="{{ 'profile.placeholders.newName' | translate }}" />
+                @if (profileForm.get('name')?.touched && profileForm.get('name')?.invalid) {
+                  <small>
+                    @if (profileForm.get('name')?.errors?.['required']) {
+                      {{ 'profile.validation.nameRequired' | translate }}
+                    } @else if (profileForm.get('name')?.errors?.['minlength']) {
+                      {{ 'profile.validation.nameMin' | translate }}
+                    }
+                  </small>
+                }
+              </div>
+              <button (click)="updateName()" [disabled]="isLoadingSubmitRequest()">
+                @if (isLoadingSubmitRequest()) {
+                  <i class="lni lni-spinner-2-sacle"></i>
+                } @else {
+                  <i class="lni lni-floppy-disk-1"></i>
+                }
+              </button>
+              <button type="button" class="cancel-btn" (click)="editingName = false; profileForm.get('name')?.reset()" aria-label="Cancelar edición">
+                <i class="lni lni-xmark"></i>
+              </button>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="profile-field">
+            @if (!editingEmail) {
+              <label>{{ 'profile.fields.email' | translate }}</label>
+              <span>{{ user.email }}</span>
+              <button type="button" (click)="editingEmail = !editingEmail">
+                <i class="lni lni-pencil-1"></i>
+              </button>
+            } @else {
+              <div class="input-group">
+                <input type="email" formControlName="email" placeholder="{{ 'profile.placeholders.newEmail' | translate }}" />
+                @if (profileForm.get('email')?.touched && profileForm.get('email')?.invalid) {
+                  <small>
+                    @if (profileForm.get('email')?.errors?.['required']) {
+                      {{ 'profile.validation.emailRequired' | translate }}
+                    } @else if (profileForm.get('email')?.errors?.['invalidEmail']) {
+                      {{ 'profile.validation.emailInvalid' | translate }}
+                    }
+                  </small>
+                }
+              </div>
+              <button (click)="updateEmail()" [disabled]="isLoadingSubmitRequest()">
+                @if (isLoadingSubmitRequest()) {
+                  <i class="lni lni-spinner-2-sacle"></i>
+                } @else {
+                  <i class="lni lni-floppy-disk-1"></i>
+                }
+              </button>
+              <button type="button" class="cancel-btn" (click)="editingEmail = false; profileForm.get('email')?.reset()" aria-label="Cancelar edición">
+                <i class="lni lni-xmark"></i>
+              </button>
+            }
+          </div>
+
+          <!-- Contraseña -->
+          <div class="profile-field">
+            @if (!editingPassword) {
+              <label>{{ 'profile.fields.password' | translate }}</label>
+              <span>********</span>
+              <button type="button" (click)="editingPassword = !editingPassword">
+                <i class="lni lni-pencil-1"></i>
+              </button>
+            } @else {
+              <div class="input-group">
+                <input type="password" formControlName="password" placeholder="{{ 'profile.placeholders.newPassword' | translate }}" />
+                @if (profileForm.get('password')?.touched && profileForm.get('password')?.invalid) {
+                  <small>
+                    @if (profileForm.get('password')?.errors?.['required']) {
+                      {{ 'profile.validation.passwordRequired' | translate }}
+                    } @else if (profileForm.get('password')?.errors?.['minlength']) {
+                      {{ 'profile.validation.passwordMin' | translate }}
+                    } @else {
+                      {{ 'profile.validation.passwordPattern' | translate }}
+                    }
+                  </small>
+                }
+              </div>
+              <button (click)="updatePassword()" [disabled]="isLoadingSubmitRequest()">
+                @if (isLoadingSubmitRequest()) {
+                  <i class="lni lni-spinner-2-sacle"></i>
+                } @else {
+                  <i class="lni lni-floppy-disk-1"></i>
+                }
+              </button>
+              <button type="button" class="cancel-btn" (click)="editingPassword = false; profileForm.get('password')?.reset()" aria-label="Cancelar edición">
+                <i class="lni lni-xmark"></i>
+              </button>
+            }
+          </div>
+
+          <div class="profile-field">
+            <label>{{ 'profile.fields.credits' | translate }}</label>
+            <span>{{ user.credits }}</span>
+            @if (user.roleType === 'PLAYER') {
+              <button (click)="openRechargeModal()">
+                <i class="lni lni-dollar-circle"></i>
+              </button>
+            }
+          </div>
+        </div>
+      } @else {
+        <div class="view-spinner view-spinner--sm">
+          <app-spinner/>
+        </div>
+      }
+    }
+
+    <!-- Preferencias -->
+    @if (activeTab() === 'prefs') {
+      <div class="preferences">
+        <div class="pref-item">
+          <label for="theme">{{ 'profile.theme.label' | translate }}</label>
+          <select id="theme" (change)="onThemeChange($event)">
+            <option [selected]="!isDarkTheme">{{ 'profile.theme.light' | translate }}</option>
+            <option [selected]="isDarkTheme">{{ 'profile.theme.dark' | translate }}</option>
+          </select>
+        </div>
+        <div class="pref-item">
+          <label for="language">{{ 'profile.language.label' | translate }}</label>
+          <select id="language" [ngModel]="selectedLanguage" (ngModelChange)="onLanguageChange($event)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="prefs-footer">
+          <button (click)="logout()">{{ 'profile.actions.logout' | translate }}</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+@if (showRechargeModal) {
+  <app-modal [width]="'400px'" (closeModal)="closeRechargeModal()">
+    <ng-container modal-header>{{ 'profile.actions.recharge' | translate }}</ng-container>
+    <ng-container modal-body>
+      <form [formGroup]="profileForm">
+        <div class="form-field">
+          <div class="input-icon-wrapper">
+            <input type="number" formControlName="amount" placeholder="{{ 'profile.placeholders.amount' | translate }}">
+            <i class="lni lni-paypal icon"></i>
+            @if (profileForm.get('amount')?.touched && profileForm.get('amount')?.invalid) {
+              @if (profileForm.get('amount')?.errors?.['required']) {
+                <small>{{ 'profile.validation.amountRequired' | translate }}</small>
+              }
+              @if (profileForm.get('amount')?.errors?.['min']) {
+                <small>{{ 'profile.validation.amountMin' | translate }}</small>
+              }
+            }
+          </div>
+        </div>
+      </form>
+    </ng-container>
+    <ng-container modal-footer>
+      <button type="submit" class="button-submit" (click)="recharge()" [disabled]="isLoadingSubmitRequest()">
+        @if (isLoadingSubmitRequest()) {
+          <span class="spinner-default"></span>
+        } @else {
+          {{ 'profile.actions.accept' | translate }}
+        }
+      </button>
+    </ng-container>
+  </app-modal>
+}

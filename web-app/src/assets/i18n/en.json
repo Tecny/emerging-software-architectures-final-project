@@ -1,0 +1,627 @@
+{
+  "common": {
+    "spinner": {
+      "loading": "Loading..."
+    },
+    "back": "Back"
+  },
+  "back": "Back",
+  "toastStatus": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning"
+  },
+  "sports": {
+    "futbol": "Football",
+    "billar": "Billiards"
+  },
+  "gamemodes": {
+    "futbol11": "Football 11",
+    "futbol8": "Football 8",
+    "futbol7": "Football 7",
+    "futbol5": "Football 5",
+    "billar3": "Billiards 3"
+  },
+  "months": {
+    "enero": "January",
+    "febrero": "February",
+    "marzo": "March",
+    "abril": "April",
+    "mayo": "May",
+    "junio": "June",
+    "julio": "July",
+    "agosto": "August",
+    "septiembre": "September",
+    "octubre": "October",
+    "noviembre": "November",
+    "diciembre": "December"
+  },
+  "blockchain": {
+    "data": "Blockchain data",
+    "txHash": "Transaction hash",
+    "inputHex": "Input Hex",
+    "spaceId": "Space ID",
+    "userId": "User ID",
+    "loading": "Loading data, please wait...",
+    "accept": "Accept"
+  },
+  "qr": {
+    "title": "Reservation QR",
+    "notAvailable": "The QR code will be available one hour before your reservation starts.",
+    "accept": "Accept"
+  },
+  "externalPages": {
+    "notFound": {
+      "title": "Page not found",
+      "message": "The page you are looking for does not exist or was moved.",
+      "button": "Back to home"
+    },
+    "unauthorized": {
+      "title": "Unauthorized access",
+      "message": "You do not have permission to view this page.",
+      "button": "Back to home"
+    },
+    "correctPayment": {
+      "title": "Payment successful!",
+      "message": "Thank you for completing your secure payment! You can close this window and return to the app."
+    },
+    "errorPayment": {
+      "title": "Payment failed!",
+      "message": "Unfortunately, your payment could not be processed. Please try again."
+    }
+  },
+  "header": {
+    "items": {
+      "home": "Home",
+      "spaces": "Sports spaces",
+      "rooms": "Community rooms",
+      "reservations": "Reservations",
+      "subscription": "Subscription",
+      "bankTransfer": {
+        "requests": "Credit withdrawal",
+        "attend": "Tickets"
+      },
+      "profile": "Profile",
+      "logout": "Log out"
+    }
+  },
+  "home": {
+    "welcomeTitle": "Welcome to the platform",
+    "welcomeMsg": "Explore our platform and discover everything we have to offer!",
+    "features": {
+      "spacesTitle": "Sports spaces",
+      "spacesPlayer": "Explore the wide variety of sports spaces and book instantly. Your next match awaits!",
+      "spacesOwner": "Manage and publish your sports spaces so players can easily book them.",
+      "spacesCta": "Go to sports spaces",
+      "roomsTitle": "Community rooms",
+      "roomsMsg": "Join community matches and bookings, meet new teammates, and boost your sports life.",
+      "roomsCta": "Go to community rooms",
+      "reservationsPlayerTitle": "Your reservations",
+      "reservationsPlayerMsg": "Check your schedules, change your plans, and get ready for action. Your next matches await.",
+      "reservationsOwnerTitle": "Reservations in your spaces",
+      "reservationsOwnerMsg": "Review and manage reservations made in your sports spaces.",
+      "reservationsCta": "Go to my reservations",
+      "withdrawOwnerTitle": "Your withdrawal tickets",
+      "withdrawOwnerMsg": "Create and manage your credit withdrawal tickets to get your earnings.",
+      "withdrawAdminTitle": "Withdrawal tickets",
+      "withdrawAdminMsg": "Manage and approve pending credit withdrawal tickets from owners.",
+      "withdrawCta": "Go to withdrawal tickets"
+    }
+  },
+  "spaces": {
+    "title": "Sports spaces",
+    "add": "Add space",
+    "filter": {
+      "sport": "Sport",
+      "gamemode": "Game mode",
+      "price": "Max price",
+      "openTime": "Opening time"
+    },
+    "card": {
+      "priceUnit": "credits",
+      "delete": "Delete",
+      "deleteTitle": "Confirm deletion",
+      "deleteMsg": "Are you sure you want to delete this sports space?",
+      "deleteSuccess": "Sports space deleted successfully",
+      "deleteError": "Error deleting the sports space"
+    },
+    "detail": {
+      "tabs": {
+        "reservation": "Reservation",
+        "info": "Information"
+      },
+      "availability": {
+        "date": "Date",
+        "actions": {
+          "confirm": "Confirm hours",
+          "reserve": "Reserve"
+        },
+        "legend": {
+          "available": "Available",
+          "reserved": "Reserved"
+        },
+        "reservation": {
+          "title": "Confirm reservation",
+          "placeholders": {
+            "name": "Reservation name",
+            "type": "Reservation type"
+          },
+          "types": {
+            "personal": "Personal",
+            "community": "Community"
+          },
+          "summary": {
+            "playDay": "Play day",
+            "schedule": "Selected schedule",
+            "cost": "Reservation cost",
+            "credits": "credits",
+            "indication": {
+              "personal": "(50% advance)",
+              "community": "(Advance per person)"
+            }
+          }
+        },
+        "validation": {
+          "hoursRequired": "You must select at least one time slot before confirming.",
+          "weekRange": "The weekly availability for this sports space has ended.\n You will be able to check it again starting Monday at 07:00.",
+          "nameRequired": "Reservation name is required",
+          "nameMin": "Minimum 5 characters",
+          "nameMax": "Maximum 25 characters",
+          "typeRequired": "Reservation type is required"
+        },
+        "toast": {
+          "ownerNotAllowed": "Owners cannot select time slots",
+          "sameDayOnly": "You can only select hours for the same day",
+          "maxTwoHours": "You can only select a maximum of 2 hours",
+          "consecutiveHours": "Selected hours must be consecutive",
+          "remainingConsecutive": "Remaining hours must be consecutive",
+          "selectAtLeastOne": "Select at least one hour to reserve",
+          "notEnoughCredits": "You do not have enough credits to create the reservation",
+          "reservationCreated": "Reservation created successfully",
+          "reservationError": "Error creating the reservation"
+        }
+      },
+      "info": {
+        "title": "Details",
+        "gamemode": "Game mode",
+        "price": "Price",
+        "priceUnit": "credits per hour",
+        "creditRate": "*1 credit = 1 sol",
+        "schedule": "Schedule",
+        "locationTitle": "Location",
+        "address": "Address",
+        "additionalTitle": "Additional",
+        "description": "Description"
+      }
+    },
+    "create": {
+      "title": "Create Sports Space",
+      "fields": {
+        "name": "Name",
+        "price": "Price",
+        "sport": "Sport",
+        "gamemode": "Game mode",
+        "openTime": "Opening time",
+        "closeTime": "Closing time",
+        "description": "Additional information",
+        "address": "Selected address",
+        "addressPlaceholder": "Your selected location on the map will appear here",
+        "imageName": "Image name",
+        "imagePlaceholder": "Click here to insert your image"
+      },
+      "errors": {
+        "nameRequired": "You must enter a name",
+        "nameMin": "The name must be at least 7 characters",
+        "priceRequired": "You must enter a price",
+        "priceMin": "The price must be greater than or equal to 25",
+        "sportRequired": "You must select a sport",
+        "gamemodeRequired": "You must select a game mode",
+        "openTimeRequired": "You must select an opening time",
+        "closeTimeRequired": "You must select a closing time",
+        "closeBeforeOpen": "Closing time must be later than opening time",
+        "lessThanFiveHours": "There must be at least 5 hours difference",
+        "descriptionRequired": "You must enter a description",
+        "descriptionMin": "The description must be at least 10 characters",
+        "locationRequired": "You must select a location on the map",
+        "imageRequired": "You must select an image"
+      },
+      "actions": {
+        "create": "Create"
+      },
+      "toasts": {
+        "success": "Sports space created successfully",
+        "error": "Error creating the sports space"
+      }
+    },
+    "dashboard": {
+      "title": "Sports space metrics",
+      "visitorsByMonth": "Number of visitors per month in {{year}}",
+      "noData": "No metrics generated yet."
+    },
+    "emptyOwner": "You have no registered sports spaces, start by adding one and upgrading your subscription",
+    "emptyPlayer": "No sports spaces found :(",
+    "loading": "Preparing sports spaces loading..."
+  },
+  "rooms": {
+    "title": "Community rooms",
+    "filter": {
+      "sport": "Sport",
+      "gamemode": "Game mode",
+      "gameday": "Game date",
+      "startTime": "Start time",
+      "maxAmount": "Max advance"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pending",
+        "CONFIRMED": "Confirmed"
+      },
+      "fields": {
+        "mode": "Game mode",
+        "date": "Date",
+        "advance": "Advance",
+        "sportSpace": "Sport space",
+        "place": "Place"
+      },
+      "actions": {
+        "goToRoom": "Go to room",
+        "delete": "Delete",
+        "leave": "Leave",
+        "join": "Join"
+      },
+      "modals": {
+        "joinTitle": "Join the room",
+        "joinMsg": "Do you want to join this community room for a cost of {{amount}} credits?",
+        "leaveTitle": "Confirm leave",
+        "leaveMsg": "Are you sure you want to leave this community room? Your credits will be refunded.",
+        "deleteTitle": "Confirm deletion",
+        "deleteMsg": "Are you sure you want to delete this community room? Your credits will be refunded."
+      },
+      "toast": {
+        "successJoin": "You have joined the community room successfully",
+        "errorJoin": "Could not join the community room",
+        "successLeave": "You have left the community room successfully",
+        "errorLeave": "Could not leave the community room",
+        "successDelete": "Community room deleted successfully",
+        "errorDelete": "Could not delete the community room"
+      }
+    },
+    "detail": {
+      "tabs": {
+        "chat": "Go to chat",
+        "info": "Go to details"
+      },
+      "info": {
+        "title": "Details",
+        "gamemode": "Game mode",
+        "date": "Date",
+        "place": "Place"
+      },
+      "playerList": {
+        "title": "Players {{count}}",
+        "creator": "Creator"
+      },
+      "chat": {
+        "empty": "There are no messages in the chat yet",
+        "placeholder": "Type a message...",
+        "send": "Send"
+      }
+    },
+    "empty": "No community rooms available at this time :(",
+    "loading": "Preparing community rooms loading..."
+  },
+  "reservations": {
+    "titles": {
+      "player": "My reservations",
+      "owner": "Reservations in your sports spaces"
+    },
+    "tabs": {
+      "personal": "Personal",
+      "community": "Community"
+    },
+    "subTabs": {
+      "own": "Created by me",
+      "join": "Joined rooms"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pending",
+        "CONFIRMED": "Confirmed"
+      },
+      "fields": {
+        "mode": "Game mode",
+        "date": "Date",
+        "price": "Reservation price",
+        "sportSpace": "Sport space",
+        "place": "Place"
+      },
+      "actions": {
+        "goToSpace": "Go to space"
+      }
+    },
+    "empty": {
+      "personalPlayer": "You have no personal reservations",
+      "personalOwner": "No personal reservations have been made in your sports spaces yet",
+      "communityOwner": "No community rooms have been created in your sports spaces yet",
+      "communityOwn": "You have not created any community rooms",
+      "communityJoin": "You have not joined any community rooms"
+    },
+    "loading": "Preparing reservations loading..."
+  },
+  "subscription": {
+    "title": "Subscription",
+    "description": "Improve the visibility and management of your sports spaces with the following plans.",
+    "currentFree": "You currently have the free subscription, which gives you a one-month free trial",
+    "plans": {
+      "bronze": "BRONZE",
+      "silver": "SILVER",
+      "gold": "GOLD"
+    },
+    "price": {
+      "bronze": "S/20.00 per month",
+      "silver": "S/36.00 per month",
+      "gold": "S/55.00 per month"
+    },
+    "features": {
+      "bronze1": "Only 1 sports space",
+      "bronze2": "Customize your sports spaces",
+      "bronze3": "Reduced visibility",
+      "bronze4": "24-hour customer service",
+      "silver1": "Up to 2 sports spaces",
+      "silver2": "Customize your sports spaces",
+      "silver3": "Medium visibility",
+      "silver4": "24-hour customer service",
+      "gold1": "Up to 3 sports spaces",
+      "gold2": "Customize your sports spaces",
+      "gold3": "Highlighted visibility",
+      "gold4": "24-hour customer service"
+    },
+    "popular": "Most Popular",
+    "upgrade": {
+      "bronze": "Upgrade to bronze",
+      "silver": "Upgrade to silver",
+      "gold": "Upgrade to gold"
+    },
+    "alreadyBronze": "You already have this plan",
+    "alreadySilver": "You already have this plan",
+    "alreadyGold": "You already have the best plan, enjoy it! 🎉"
+  },
+  "tickets": {
+    "title": "Credit withdrawal",
+    "tabs": {
+      "pending": "Pending",
+      "confirmed": "Confirmed"
+    },
+    "card": {
+      "status": {
+        "PENDING": "Pending",
+        "CONFIRMED": "Confirmed",
+        "DEFERRED": "Deferred"
+      },
+      "fields": {
+        "ticketNumber": "Ticket",
+        "fullName": "Full name",
+        "bankName": "Bank",
+        "transferType": "Transfer type",
+        "accountNumber": "Account number",
+        "amount": "Amount",
+        "credits": "credits"
+      },
+      "actions": {
+        "confirm": "Confirm",
+        "defer": "Defer"
+      },
+      "modals": {
+        "confirmTitle": "Confirm ticket",
+        "confirmMsg": "Are you sure you want to confirm this credit withdrawal ticket?",
+        "deferTitle": "Defer ticket",
+        "deferMsg": "Are you sure you want to defer this credit withdrawal ticket?"
+      },
+      "toast": {
+        "successConfirm": "Ticket successfully confirmed",
+        "errorConfirm": "Error confirming the ticket",
+        "successDefer": "Ticket successfully deferred",
+        "errorDefer": "Error deferring the ticket"
+      }
+    },
+    "modal": {
+      "title": "Create withdrawal ticket",
+      "bankType": {
+        "associated": "Associated banks",
+        "other": "Other banks"
+      },
+      "fields": {
+        "fullName": "Full name",
+        "bankName": "Bank",
+        "accountNumber": "Account number",
+        "accountNumberOther": "Interbank account number"
+      },
+      "summary": {
+        "amount": "Amount to withdraw",
+        "credits": "credits"
+      },
+      "actions": {
+        "create": "Create"
+      },
+      "validation": {
+        "fullNameRequired": "Full name is required",
+        "fullNameMin": "Full name must be at least 5 characters",
+        "bankNameRequired": "Bank is required",
+        "accountNumberRequired": "Account number is required",
+        "accountNumberPattern": "Account number must contain only numbers",
+        "accountNumberLength": "Account number length must be {{expectedLength}} digits"
+      }
+    },
+    "toast": {
+      "successCreate": "Transfer request created successfully.",
+      "errorCreate": "Error creating the transfer request."
+    },
+    "empty": {
+      "owner": "You have no requested credit withdrawal tickets",
+      "admin": "You have no credit withdrawal tickets to attend"
+    },
+    "loading": "Preparing credit withdrawal tickets loading..."
+  },
+  "profile": {
+    "title": "Profile",
+    "role": {
+      "player": "Player",
+      "owner": "Owner",
+      "user": "User"
+    },
+    "tabs": {
+      "info": "Information",
+      "prefs": "Preferences"
+    },
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "credits": "Credits",
+      "amount": "Amount to recharge"
+    },
+    "placeholders": {
+      "newName": "New name",
+      "newEmail": "New email",
+      "newPassword": "New password",
+      "amount": "Amount to recharge"
+    },
+    "actions": {
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel edit",
+      "recharge": "Recharge credits",
+      "accept": "Accept",
+      "logout": "Log out"
+    },
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "language": {
+      "label": "Language"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Must be at least 3 letters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid format",
+      "passwordRequired": "Password is required",
+      "passwordMin": "At least 16 characters",
+      "passwordPattern": "Must include uppercase, number and special character",
+      "amountRequired": "Amount is required",
+      "amountMin": "Amount must be at least 1"
+    },
+    "toast": {
+      "nameUpdated": "Name updated successfully",
+      "emailUpdated": "Email updated successfully",
+      "passwordUpdated": "Password updated successfully",
+      "sessionClosed": "You have logged out successfully",
+      "nameRepeat": "You cannot use the same name as before",
+      "emailRepeat": "You cannot use the same email as before",
+      "nameUpdateError": "There was an error updating the name",
+      "emailUpdateError": "There was an error updating the email",
+      "passwordUpdateError": "There was an error updating the password",
+      "paymentOpenError": "There was an error opening the payment window"
+    }
+  },
+  "login": {
+    "title": "Welcome!",
+    "fields": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "placeholders": {
+      "email": "Email",
+      "password": "Password",
+      "emailRecover": "Enter your email"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "Password is required"
+    },
+    "buttons": {
+      "login": "Login",
+      "register": "Register",
+      "forgot": "Forgot your password?",
+      "send": "Send"
+    },
+    "recover": {
+      "title": "Recover password",
+      "success": "A recovery link was sent to your email"
+    },
+    "noAccount": "Don't have an account?",
+    "error": {
+      "invalidCredentials": "Incorrect credentials"
+    },
+    "toast": {
+      "successLogin": "Login successful",
+      "errorLogin": "Login failed",
+      "successRecover": "A recovery link was sent to your email",
+      "errorRecover": "Error sending recovery email"
+    }
+  },
+  "register": {
+    "title": "Create your account!",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "role": "Role"
+    },
+    "placeholders": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "role": "Role"
+    },
+    "roles": {
+      "PLAYER": "Player",
+      "OWNER": "Owner"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Must be at least 3 letters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid format",
+      "passwordRequired": "Password is required",
+      "passwordMin": "At least 16 characters",
+      "passwordPattern": "Must include uppercase, number and special character",
+      "roleRequired": "Role is required"
+    },
+    "buttons": {
+      "register": "Register"
+    },
+    "alreadyAccount": "Already have an account?",
+    "login": "Log in",
+    "toast": {
+      "success": "Registration successful",
+      "error": "Registration failed",
+      "emailExists": "A user with this email already exists"
+    }
+  },
+  "resetPassword": {
+    "title": "Change password",
+    "description": "Please enter your new password",
+    "fields": {
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "validation": {
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 16 characters",
+      "passwordPattern": "Must include uppercase, number and special character",
+      "confirmPasswordRequired": "Confirmation is required",
+      "passwordsNotMatch": "Passwords do not match"
+    },
+    "buttons": {
+      "update": "Update"
+    },
+    "toast": {
+      "success": "Password updated successfully",
+      "error": "Error updating password"
+    }
+  }
+}
