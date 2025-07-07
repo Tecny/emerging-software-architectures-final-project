@@ -1,0 +1,7 @@
+@if (players()) {
+  <div class="player-list__item">
+    @for (players of players(); track players.id) {
+      <div class="player-list__name">{{ players.name }}</div>
+    }
+  </div>
+}

@@ -1,0 +1,28 @@
+<div id="chat-container" class="chat-messages">
+  @for (message of messages(); track message.createdAt) {
+    <div
+      class="chat-bubble"
+      [class.own-message]="currentUser()?.id === message.user.id"
+    >
+      <div class="author">{{ message.user.name }}</div>
+      <div class="content">{{ message.content }}</div>
+      <div class="timestamp">{{ message.createdAt | date:'shortTime' }}</div>
+    </div>
+  } @empty {
+    <small>{{ 'rooms.detail.chat.empty' | translate }}</small>
+  }
+</div>
+
+<div class="chat-input">
+  <input
+    type="text"
+    [value]="newMessageContent()"
+    (input)="newMessageContent.set($any($event.target).value)"
+    (keydown.enter)="sendMessage(newMessageContent())"
+    placeholder="{{ 'rooms.detail.chat.placeholder' | translate }}"
+  />
+  <button (click)="sendMessage(newMessageContent())">
+    <span>{{ 'rooms.detail.chat.send' | translate }}</span>
+    <i class="lni lni-location-arrow-right"></i>
+  </button>
+</div>
