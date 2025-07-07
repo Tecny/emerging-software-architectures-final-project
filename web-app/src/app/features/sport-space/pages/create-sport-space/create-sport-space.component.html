@@ -1,0 +1,177 @@
+<div class="title-wrapper">
+  <button class="button-back" (click)="goBack()">
+    <i class="lni lni-arrow-left-circle"></i>
+    <p>{{ 'common.back' | translate }}</p>
+  </button>
+  <h2 class="section-title">{{ 'spaces.create.title' | translate }}</h2>
+</div>
+<form class="form-body" [formGroup]="createSportSpaceForm" (ngSubmit)="createSportSpace()">
+  <div class="form-grid">
+    <!-- Nombre -->
+    <div class="form-field">
+      <input type="text" id="name" formControlName="name" placeholder=" " required />
+      <label for="name">{{ 'spaces.create.fields.name' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('name')?.invalid && (createSportSpaceForm.get('name')?.dirty || createSportSpaceForm.get('name')?.touched)) {
+          @if (createSportSpaceForm.get('name')?.errors?.['required']) {
+            {{ 'spaces.create.errors.nameRequired' | translate }}
+          }
+          @if (createSportSpaceForm.get('name')?.errors?.['minlength']) {
+            {{ 'spaces.create.errors.nameMin' | translate }}
+          }
+        }
+      </small>
+    </div>
+    <!-- Precio -->
+    <div class="form-field">
+      <input type="number" id="price" formControlName="price" placeholder=" " required />
+      <label for="price">{{ 'spaces.create.fields.price' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('price')?.invalid && (createSportSpaceForm.get('price')?.dirty || createSportSpaceForm.get('price')?.touched)) {
+          @if (createSportSpaceForm.get('price')?.errors?.['required']) {
+            {{ 'spaces.create.errors.priceRequired' | translate }}
+          }
+          @if (createSportSpaceForm.get('price')?.errors?.['min']) {
+            {{ 'spaces.create.errors.priceMin' | translate }}
+          }
+        }
+      </small>
+    </div>
+    <!-- Deporte -->
+    <div class="form-field">
+      <select formControlName="sportId" required>
+        @for (sport of SPORTS; track sport.id) {
+          <option [value]="sport.id">{{ sport.label | translate }}</option>
+        }
+      </select>
+      <label>{{ 'spaces.create.fields.sport' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('sportId')?.invalid && (createSportSpaceForm.get('sportId')?.dirty || createSportSpaceForm.get('sportId')?.touched)) {
+          {{ 'spaces.create.errors.sportRequired' | translate }}
+        }
+      </small>
+    </div>
+    <!-- Modo de juego -->
+    <div class="form-field">
+      <select formControlName="gamemodeId" required>
+        @for (mode of gamemodes(); track mode.id) {
+          <option [value]="mode.id">{{ mode.label | translate }}</option>
+        }
+      </select>
+      <label>{{ 'spaces.create.fields.gamemode' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('gamemodeId')?.invalid && (createSportSpaceForm.get('gamemodeId')?.dirty || createSportSpaceForm.get('gamemodeId')?.touched)) {
+          {{ 'spaces.create.errors.gamemodeRequired' | translate }}
+        }
+      </small>
+    </div>
+    <!-- Hora de apertura -->
+    <div class="form-field">
+      <select formControlName="openTime" required>
+        @for (hour of [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]; track hour) {
+          <option [value]="hour.toString().padStart(2, '0') + ':00'">{{ hour.toString().padStart(2, '0') }}:00</option>
+        }
+      </select>
+      <label>{{ 'spaces.create.fields.openTime' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('openTime')?.invalid && (createSportSpaceForm.get('openTime')?.dirty || createSportSpaceForm.get('openTime')?.touched)) {
+          {{ 'spaces.create.errors.openTimeRequired' | translate }}
+        }
+      </small>
+    </div>
+    <!-- Hora de cierre -->
+    <div class="form-field">
+      <select formControlName="closeTime" required>
+        @for (hour of [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]; track hour) {
+          <option [value]="hour.toString().padStart(2, '0') + ':00'">{{ hour.toString().padStart(2, '0') }}:00</option>
+        }
+      </select>
+      <label>{{ 'spaces.create.fields.closeTime' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('closeTime')?.invalid && (createSportSpaceForm.get('closeTime')?.dirty || createSportSpaceForm.get('closeTime')?.touched)) {
+          {{ 'spaces.create.errors.closeTimeRequired' | translate }}
+        }
+        @if (createSportSpaceForm.errors?.['closeBeforeOpen']) {
+          {{ 'spaces.create.errors.closeBeforeOpen' | translate }}
+        }
+        @if (createSportSpaceForm.errors?.['lessThanFiveHours']) {
+          {{ 'spaces.create.errors.lessThanFiveHours' | translate }}
+        }
+      </small>
+    </div>
+    <!-- Descripción -->
+    <div class="form-field form-field-full">
+      <textarea formControlName="description" placeholder=" " required></textarea>
+      <label>{{ 'spaces.create.fields.description' | translate }}</label>
+      <small class="error-text">
+        @if (createSportSpaceForm.get('description')?.invalid && (createSportSpaceForm.get('description')?.dirty || createSportSpaceForm.get('description')?.touched)) {
+          @if (createSportSpaceForm.get('description')?.errors?.['required']) {
+            {{ 'spaces.create.errors.descriptionRequired' | translate }}
+          }
+          @if (createSportSpaceForm.get('description')?.errors?.['minlength']) {
+            {{ 'spaces.create.errors.descriptionMin' | translate }}
+          }
+        }
+      </small>
+    </div>
+    <!-- Dirección/mapa -->
+    <div>
+      <div class="form-field">
+        <input type="text" placeholder="{{ 'spaces.create.fields.addressPlaceholder' | translate }}" [value]="selectedAddress" readonly />
+        <label class="no-float-label">{{ 'spaces.create.fields.address' | translate }}</label>
+        <small class="error-text"></small>
+      </div>
+      <div id="map" class="map-container" [ngClass]="{ 'invalid-map': locationNotSelected }"></div>
+      <div class="form-field">
+        <small class="error-text">
+          @if (locationNotSelected) {
+            {{ 'spaces.create.errors.locationRequired' | translate }}
+          }
+        </small>
+      </div>
+    </div>
+    <!-- Imagen -->
+    <div>
+      <div class="form-field">
+        <input
+          type="text"
+          placeholder="{{ 'spaces.create.fields.imageName' | translate }}"
+          [value]="selectedImageFile?.name || ''"
+          readonly
+        />
+        <label class="no-float-label">{{ 'spaces.create.fields.imageName' | translate }}</label>
+        <small class="error-text"></small>
+      </div>
+      <div class="image-upload-area" [ngClass]="{ 'has-image': selectedImageUrl }">
+        @if (selectedImageUrl) {
+          <div class="image-preview">
+            <img [src]="selectedImageUrl" alt="Vista previa de la imagen" />
+          </div>
+        } @else {
+          <div class="image-placeholder">
+            <span>{{ 'spaces.create.fields.imagePlaceholder' | translate }}</span>
+          </div>
+        }
+        <input type="file" id="image" (change)="onImageSelected($event)" accept="image/*" required />
+      </div>
+      <div class="form-field">
+        <small class="error-text">
+          @if (submitted && !selectedImageUrl) {
+            {{ 'spaces.create.errors.imageRequired' | translate }}
+          }
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="button-center">
+    <button type="submit"
+            class="button-submit"
+            [disabled]="isLoadingSubmitRequest()">
+      @if (isLoadingSubmitRequest()) {
+        <span class="spinner-default"></span>
+      } @else {
+        {{ 'spaces.create.actions.create' | translate }}
+      }
+    </button>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<button class="button-back" (click)="goBack()">
+  <i class="lni lni-arrow-left-circle"></i>
+  {{ 'common.back' | translate }}
+</button>
+@if (!isLoading() && sportSpace()) {
+  <div class="sport-space-container">
+    <div class="header">
+      <img src="{{ sportSpace()?.imageUrl }}" alt="Imagen del espacio deportivo" />
+      <h1 class="title">{{ sportSpace()?.name }}</h1>
+    </div>
+
+    <div class="details-page">
+
+      <div class="tab-buttons">
+        <button [class.active]="activeTab() === 'availability'" (click)="setTab('availability')">{{ 'spaces.detail.tabs.reservation' | translate }}</button>
+        <button [class.active]="activeTab() === 'info'" (click)="setTab('info')">{{ 'spaces.detail.tabs.info' | translate }}</button>
+      </div>
+
+      <div class="tab-content">
+        @if (activeTab() === 'info') {
+          <app-sport-space-info [sportSpace]="sportSpace()!" />
+        }
+        @if (activeTab() === 'availability') {
+          @defer (when !isLoading()) {
+            <app-sport-space-availability [sportSpace]="sportSpace()!" />
+          } @placeholder {
+            <div class="view-spinner">
+              <app-spinner/>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="view-spinner">
+    <app-spinner/>
+  </div>
+}

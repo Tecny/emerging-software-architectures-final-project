@@ -1,0 +1,51 @@
+<div class="sport-space-info__container">
+  <div class="info-panels">
+    <div class="info-panel">
+      <div class="info-panel__header">
+        <h3>{{ 'spaces.detail.info.title' | translate }}</h3>
+        <span class="credit-rate">{{ 'spaces.detail.info.creditRate' | translate }}</span>
+      </div>
+      <div class="info-row">
+        <i class="lni lni-star-fat"></i>
+        <span>
+          <strong>{{ 'spaces.detail.info.gamemode' | translate }}:</strong>
+          {{ String(gamemodeIdToLabelMap[sportSpace.gamemodeId]) | translate }}
+        </span>
+      </div>
+      <div class="info-row">
+        <i class="lni lni-dollar-circle"></i>
+        <span>
+          <strong>{{ 'spaces.detail.info.price' | translate }}:</strong>
+          {{ sportSpace.price }} {{ 'spaces.detail.info.priceUnit' | translate }}
+        </span>
+      </div>
+      <div class="info-row">
+        <i class="lni lni-alarm-1"></i>
+        <span>
+          <strong>{{ 'spaces.detail.info.schedule' | translate }}:</strong>
+          {{ sportSpace.openTime }} - {{ sportSpace.closeTime }}
+        </span>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <h3>{{ 'spaces.detail.info.locationTitle' | translate }}</h3>
+      <div class="info-row">
+        <i class="lni lni-map-pin-5"></i>
+        <span>{{ sportSpace.address }}</span>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <h3>{{ 'spaces.detail.info.additionalTitle' | translate }}</h3>
+      <div class="info-row">
+        <i class="lni lni-paperclip-1"></i>
+        <p>{{ sportSpace.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div id="map" class="map"></div>
+  </div>
+</div>
