@@ -1,0 +1,68 @@
+@use 'abstracts/variables' as var;
+@use 'components/form';
+@use 'components/section-title';
+@use 'components/button';
+@use 'components/spinner';
+
+.cards-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem 1.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bank-type-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+
+  label {
+    flex: 1;
+    text-align: center;
+    input[type="radio"] {
+      accent-color: var.$green-medium;
+    }
+  }
+}
+
+.ticket-summary {
+  background: var(--modal-summary-bg);
+  border-radius: 1.2rem;
+  padding: 0.7rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--modal-summary-bg);
+  box-shadow: 0 2px 12px rgba(60, 60, 60, 0.07);
+
+  strong {
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+
+  div {
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem 0.7rem;
+    font-size: 0.97rem;
+    border-radius: 0.7rem;
+    gap: 1rem;
+  }
+}

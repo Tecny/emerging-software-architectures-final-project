@@ -1,0 +1,161 @@
+<div class="title-wrapper">
+  <div class="section-title">{{ 'tickets.title' | translate }}</div>
+  @if (this.userRole === UserRole.OWNER) {
+    <button class="add-sport-btn" (click)="openTicketModal()" [title]="'tickets.modal.title' | translate">
+      <i class="lni lni-plus"></i>
+    </button>
+  }
+</div>
+
+<div class="tab-buttons tab-buttons--reservation">
+  <button [class.active]="activeTab() === 'pending'" (click)="setTab('pending')">
+    {{ 'tickets.tabs.pending' | translate }}
+  </button>
+  <button [class.active]="activeTab() === 'confirmed'" (click)="setTab('confirmed')">
+    {{ 'tickets.tabs.confirmed' | translate }}
+  </button>
+</div>
+
+@defer (prefetch on viewport) {
+  @if (filteredTickets(); as tcks) {
+    <div class="cards-grid">
+      @for (ticket of tcks; track ticket.id) {
+        <app-ticket-card [ticket]="ticket"
+                         (ticketConfirmed)="loadTickets()"
+                         (ticketDeferred)="loadTickets()"/>
+      } @empty {
+        @if (userRole === UserRole.OWNER) {
+          <div class="empty-state">
+            <i class="lni lni-megaphone-1 empty-icon"></i>
+            <p>{{ 'tickets.empty.owner' | translate }}</p>
+          </div>
+        } @else if (userRole === UserRole.ADMIN) {
+          <div class="empty-state">
+            <i class="lni lni-megaphone-1 empty-icon"></i>
+            <p>{{ 'tickets.empty.admin' | translate }}</p>
+          </div>
+        }
+      }
+    </div>
+  } @else {
+    <div class="view-spinner view-spinner--sm">
+      <app-spinner/>
+    </div>
+  }
+} @placeholder {
+  <div class="empty-state">
+    <i class="lni lni-hourglass placeholder-icon"></i>
+    <p>{{ 'tickets.loading' | translate }}</p>
+  </div>
+} @loading {
+  <div class="view-spinner view-spinner--sm">
+    <app-spinner/>
+  </div>
+}
+
+<!-- Modal -->
+@if (showTicketModal) {
+  <app-modal [width]="'400px'" [variant]="'default'" (closeModal)="closeTicketModal()">
+    <ng-container modal-header>{{ 'tickets.modal.title' | translate }}</ng-container>
+
+    <ng-container modal-body>
+      <div class="bank-type-toggle">
+        <label>
+          <input
+            type="radio"
+            name="bankType"
+            value="asociado"
+            [(ngModel)]="bankType"
+            (change)="onBankTypeChange()"
+          />
+          {{ 'tickets.modal.bankType.associated' | translate }}
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="bankType"
+            value="otro"
+            [(ngModel)]="bankType"
+            (change)="onBankTypeChange()"
+          />
+          {{ 'tickets.modal.bankType.other' | translate }}
+        </label>
+      </div>
+
+      <form [formGroup]="ticketForm" class="form-body">
+        <div class="form-field">
+          <div class="input-icon-wrapper">
+            <input formControlName="fullName" type="text" [placeholder]="'tickets.modal.fields.fullName' | translate" required/>
+          </div>
+          @if (ticketForm.get('fullName')?.touched && ticketForm.get('fullName')?.invalid) {
+            @if (ticketForm.get('fullName')?.errors?.['required']) {
+              <small>{{ 'tickets.modal.validation.fullNameRequired' | translate }}</small>
+            }
+            @if (ticketForm.get('fullName')?.errors?.['minlength']) {
+              <small>{{ 'tickets.modal.validation.fullNameMin' | translate }}</small>
+            }
+          }
+        </div>
+
+        <div class="form-field">
+          <div class="input-icon-wrapper">
+            @if (bankType === 'asociado') {
+              <select formControlName="bankName">
+                <option value="" disabled selected hidden>{{ 'tickets.modal.fields.bankName' | translate }}</option>
+                <option value="BCP">BCP</option>
+                <option value="BBVA">BBVA</option>
+                <option value="Interbank">Interbank</option>
+              </select>
+            } @else {
+              <input formControlName="bankName" type="text" [placeholder]="'tickets.modal.fields.bankName' | translate"/>
+            }
+          </div>
+          @if (ticketForm.get('bankName')?.touched && ticketForm.get('bankName')?.invalid) {
+            @if (ticketForm.get('bankName')?.errors?.['required']) {
+              <small>{{ 'tickets.modal.validation.bankNameRequired' | translate }}</small>
+            }
+          }
+        </div>
+
+        <div class="form-field">
+          <div class="input-icon-wrapper">
+            <input
+              formControlName="accountNumber"
+              type="text"
+              [placeholder]="bankType === 'asociado' ? ('tickets.modal.fields.accountNumber' | translate) : ('tickets.modal.fields.accountNumberOther' | translate)"
+              required
+            />
+          </div>
+          @if (ticketForm.get('accountNumber')?.touched && ticketForm.get('accountNumber')?.invalid) {
+            @if (ticketForm.get('accountNumber')?.errors?.['required']) {
+              <small>{{ 'tickets.modal.validation.accountNumberRequired' | translate }}</small>
+            } @else if (ticketForm.get('accountNumber')?.errors?.['pattern']) {
+              <small>{{ 'tickets.modal.validation.accountNumberPattern' | translate }}</small>
+            } @else if (ticketForm.get('accountNumber')?.errors?.['invalidAccountNumberLength']) {
+              <small>
+                {{ 'tickets.modal.validation.accountNumberLength' | translate:{ expectedLength: ticketForm.get('accountNumber')?.errors?.['invalidAccountNumberLength'].expectedLength } }}
+              </small>
+            }
+          }
+        </div>
+      </form>
+
+      <section class="ticket-summary">
+        <div>
+          <strong>{{ 'tickets.modal.summary.amount' | translate }}:</strong> {{ userCredits }} {{ 'tickets.modal.summary.credits' | translate }}
+        </div>
+      </section>
+    </ng-container>
+
+    <ng-container modal-footer>
+      <button type="submit" class="button-submit" (click)="submitTicketRequest()">
+        @if (isLoadingSubmitRequest()) {
+          <span class="spinner-default"></span>
+        } @else {
+          {{ 'tickets.modal.actions.create' | translate }}
+        }
+      </button>
+    </ng-container>
+  </app-modal>
+}

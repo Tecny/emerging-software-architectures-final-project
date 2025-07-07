@@ -1,0 +1,134 @@
+@use 'components/button';
+@use 'components/spinner';
+
+.ticket-card {
+  background-color: var(--ticket-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  max-width: 420px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-left: 6px solid var(--ticket-card-border);
+
+  &--pending {
+    border-left-color: var(--ticket-card-status-pending);
+
+    .ticket-card__status {
+      color: var(--ticket-card-status-pending);
+      background-color: var(--ticket-card-status-pending-bg);
+      border-radius: 4px;
+      padding: 2px 8px;
+      display: inline-block;
+      width: fit-content;
+    }
+  }
+
+  &--confirmed {
+    border-left-color: var(--ticket-card-status-confirmed);
+
+    .ticket-card__status {
+      color: var(--ticket-card-status-confirmed);
+      background-color: var(--ticket-card-status-confirmed-bg);
+      border-radius: 4px;
+      padding: 2px 8px;
+      display: inline-block;
+      width: fit-content;
+    }
+  }
+
+  &--deferred {
+    border-left-color: var(--ticket-card-status-deferred);
+
+    .ticket-card__status {
+      color: var(--ticket-card-status-deferred);
+      background-color: var(--ticket-card-status-deferred-bg);
+      border-radius: 4px;
+      padding: 2px 8px;
+      display: inline-block;
+      width: fit-content;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .ticket-card__status {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ticket-card-title);
+      word-break: break-word;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--ticket-card-content);
+
+    p {
+      margin: 0;
+
+      &:before {
+        content: "• ";
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--ticket-card-action-btn-bg);
+      color: var(--ticket-card-action-btn-color);
+      border: none;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      i {
+        font-size: 1rem;
+      }
+
+      &:hover {
+        background-color: var(--ticket-card-action-btn-hover-bg);
+      }
+
+      &:nth-child(2) {
+        background-color: var(--ticket-card-action-btn-alt-bg);
+
+        &:hover {
+          background-color: var(--ticket-card-action-btn-alt-hover-bg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ticket-card {
+    max-width: none;
+  }
+}
