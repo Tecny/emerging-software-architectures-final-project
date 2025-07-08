@@ -1,0 +1,71 @@
+@use 'abstracts/variables' as var;
+
+@mixin spinner($color) {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid $color;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+.spinner-default {
+  @include spinner(var.$green-medium);
+}
+
+.spinner-danger {
+  @include spinner(#FF5E5E);
+}
+
+.spinner-warning {
+  @include spinner(#f59e42);
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.view-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  width: 100%;
+}
+
+.view-spinner--sm {
+  min-height: 300px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--empty-state-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--empty-state-icon-color);
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--empty-state-text-color);
+  }
+
+  &.placeholder-icon {
+    color: var(--empty-state-placeholder-icon);
+  }
+
+  &.empty-icon {
+    color: var(--empty-state-empty-icon);
+  }
+}

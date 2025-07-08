@@ -1,0 +1,193 @@
+@use 'abstracts/variables' as var;
+
+@mixin modal-type($bg-gradient, $border-color) {
+  .modal__header {
+    background: $bg-gradient;
+    color: #fff;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .modal__close {
+    color: #fff;
+
+    i {
+      color: #fff;
+    }
+
+    &:hover {
+      color: #fff;
+      background: none;
+      box-shadow: none;
+    }
+  }
+}
+
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(6px) brightness(0.95);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.modal {
+  background: var(--modal-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22), 0 1.5px 6px rgba(0, 0, 0, 0.10);
+  max-width: 600px;
+  width: 92%;
+  overflow: hidden;
+  z-index: 1000;
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+
+.modal__header {
+  padding: 0.75rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(139, 212, 80, 0.85);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var.$green-black;
+  border-bottom: 1px solid rgba(139, 212, 80, 0.18);
+  position: relative;
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var.$green-black;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+
+  i {
+    font-size: 1.6rem;
+  }
+}
+
+.modal__body {
+  padding: 1.2rem 1.1rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
+  scrollbar-width: thin;
+}
+
+.modal__footer {
+  padding: 0.75rem 1.1rem 1.1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: transparent;
+
+  button,
+  .btn {
+    background: var.$green-dark;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(139, 212, 80, 0.10);
+    transition: background 0.2s, transform 0.2s;
+
+    &:hover {
+      background: var.$green-medium;
+      transform: translateY(-2px) scale(1.04);
+    }
+  }
+}
+
+.modal.danger {
+  @include modal-type(
+      linear-gradient(90deg, rgba(255, 94, 94, 0.85) 0%, rgba(225, 59, 59, 0.85) 100%),
+      rgba(255, 94, 94, 0.3)
+  );
+}
+
+.modal.warning {
+  @include modal-type(
+      linear-gradient(90deg, rgba(255, 193, 7, 0.85) 0%, rgba(255, 152, 0, 0.85) 100%),
+      rgba(255, 193, 7, 0.3)
+  );
+}
+
+.modal.info {
+  @include modal-type(
+      linear-gradient(90deg, rgba(59, 130, 246, 0.85) 0%, rgba(37, 99, 235, 0.85) 100%),
+      rgba(59, 130, 246, 0.3)
+  );
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 80%;
+    border-radius: 1rem;
+    padding: 0;
+  }
+
+  .modal__header,
+  .modal__footer {
+    padding: 0.7rem 0.7rem;
+    font-size: 1rem;
+  }
+
+  .modal__footer {
+    justify-content: center;
+  }
+
+  .modal__body {
+    padding: 0.9rem 0.7rem;
+    font-size: 0.98rem;
+  }
+
+  .modal__close {
+    width: 2rem;
+    height: 2rem;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}

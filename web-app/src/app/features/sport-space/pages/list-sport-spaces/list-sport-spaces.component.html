@@ -1,0 +1,72 @@
+<div class="title-wrapper">
+  <h2 class="section-title">{{ 'spaces.title' | translate }}</h2>
+  @if (showAddSportSpaceButton()) {
+    <button class="add-sport-btn" routerLink="/sport-spaces/create" title="{{ 'spaces.add' | translate }}">
+      <i class="lni lni-plus"></i>
+    </button>
+  }
+</div>
+
+@if (this.userRole === UserRole.PLAYER) {
+  <app-filter
+    [config]="[
+      { field: 'sport', type: 'select', label: ('spaces.filter.sport' | translate), options: SPORTS },
+      { field: 'gamemode', type: 'select', label: ('spaces.filter.gamemode' | translate), options: [] },
+      { field: 'price', type: 'number', label: ('spaces.filter.price' | translate) },
+      { field: 'openTime', type: 'time', label: ('spaces.filter.openTime' | translate)}
+    ]"
+    (filtersChanged)="onFiltersChanged($event)"
+  />
+}
+
+<div class="grid-map-wrapper">
+  @if (isMapView()) {
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+  } @else {
+    @defer (prefetch on viewport) {
+      @if (sportSpaces(); as spaces) {
+        <div class="cards-grid">
+          @for (space of spaces; track space.id) {
+            <app-sport-space-card [sportSpace]="space" (spaceDeleted)="loadSportSpaces()" />
+          } @empty {
+            @if (userRole === UserRole.OWNER) {
+              <div class="empty-state">
+                <i class="lni lni-megaphone-1 empty-icon"></i>
+                <p>{{ 'spaces.emptyOwner' | translate }}</p>
+              </div>
+            } @else {
+              <div class="empty-state">
+                <i class="lni lni-eraser-1"></i>
+                <p>{{ 'spaces.emptyPlayer' | translate }}</p>
+              </div>
+            }
+          }
+        </div>
+      } @else {
+        <div class="view-spinner view-spinner--sm">
+          <app-spinner/>
+        </div>
+      }
+    } @loading {
+      <div class="view-spinner view-spinner--sm">
+        <app-spinner/>
+      </div>
+    } @placeholder {
+      <div class="empty-state">
+        <i class="lni lni-hourglass placeholder-icon"></i>
+        <p>{{ 'spaces.loading' | translate }}</p>
+      </div>
+    }
+  }
+</div>
+
+@if (userRole === UserRole.PLAYER){
+  <button class="toggle-view-btn" (click)="toggleView()">
+    <i class="lni" [ngClass]="{
+    'lni-map-marker-1': !isMapView(),
+    'lni-dashboard-square-1 ': isMapView()
+  }"></i>
+  </button>
+}

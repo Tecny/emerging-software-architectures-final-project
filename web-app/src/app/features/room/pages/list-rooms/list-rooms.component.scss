@@ -1,0 +1,16 @@
+@use 'components/section-title';
+@use 'components/spinner';
+
+.cards-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem 1.5rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

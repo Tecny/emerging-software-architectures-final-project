@@ -1,0 +1,47 @@
+@if (room()) {
+  <div class="title-wrapper">
+    <button class="button-back" (click)="goBack()">
+      <i class="lni lni-arrow-left-circle"></i>
+      <p>{{ 'common.back' | translate }}</p>
+    </button>
+    <h2 class="section-title">{{ room()?.reservation?.reservationName }}</h2>
+  </div>
+
+  @if (windowWidth() < 1080) {
+    <div class="toggle-panel-btns">
+      @if (activeTab() === 'chat') {
+        <button (click)="setTab('info')" type="button">
+          <i class="lni lni-star-fat"></i>
+          {{ 'rooms.detail.tabs.info' | translate }}
+        </button>
+      }
+      @else {
+        <button (click)="setTab('chat')" type="button">
+          <i class="lni lni-comment-1-text"></i>
+          {{ 'rooms.detail.tabs.chat' | translate }}
+        </button>
+      }
+    </div>
+  }
+
+  <div class="details-page">
+    <div class="details-page__grid">
+      @if (activeTab() === 'info' || windowWidth() >= 1080) {
+        <div class="details-page__left">
+          <app-room-info [room]="room()!" />
+          <app-room-player-list [room]="room()!" />
+        </div>
+      }
+      @if (activeTab() === 'chat' || windowWidth() >= 1080) {
+        <div class="details-page__right">
+          <app-room-chat [room]="room()!" />
+        </div>
+      }
+    </div>
+  </div>
+}
+@else {
+  <div class="view-spinner view-spinner--sm">
+    <app-spinner/>
+  </div>
+}

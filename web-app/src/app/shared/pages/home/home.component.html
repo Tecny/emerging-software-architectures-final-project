@@ -1,0 +1,56 @@
+<div class="home">
+  <div class="title-wrapper">
+    <h2 class="section-title">{{ 'home.welcomeTitle' | translate }}</h2>
+  </div>
+  <div class="home__welcome">
+    <p>{{ 'home.welcomeMsg' | translate }}</p>
+  </div>
+
+  <div class="home__features">
+    @if (userRole === UserRole.PLAYER || userRole === UserRole.OWNER) {
+      <div class="feature">
+        <h2>{{ 'home.features.spacesTitle' | translate }}</h2>
+        @if (userRole === UserRole.PLAYER) {
+          <p>{{ 'home.features.spacesPlayer' | translate }}</p>
+        } @else {
+          <p>{{ 'home.features.spacesOwner' | translate }}</p>
+        }
+        <a routerLink="/sport-spaces" class="home__cta">{{ 'home.features.spacesCta' | translate }}</a>
+      </div>
+    }
+
+    @if (userRole === UserRole.PLAYER) {
+      <div class="feature">
+        <h2>{{ 'home.features.roomsTitle' | translate }}</h2>
+        <p>{{ 'home.features.roomsMsg' | translate }}</p>
+        <a routerLink="/rooms" class="home__cta">{{ 'home.features.roomsCta' | translate }}</a>
+      </div>
+    }
+
+    @if (userRole === UserRole.PLAYER || userRole === UserRole.OWNER) {
+      <div class="feature">
+        @if (userRole === UserRole.PLAYER) {
+          <h2>{{ 'home.features.reservationsPlayerTitle' | translate }}</h2>
+          <p>{{ 'home.features.reservationsPlayerMsg' | translate }}</p>
+        } @else {
+          <h2>{{ 'home.features.reservationsOwnerTitle' | translate }}</h2>
+          <p>{{ 'home.features.reservationsOwnerMsg' | translate }}</p>
+        }
+        <a routerLink="/reservations" class="home__cta">{{ 'home.features.reservationsCta' | translate }}</a>
+      </div>
+    }
+
+    @if (userRole === UserRole.OWNER || userRole === UserRole.ADMIN) {
+      <div class="feature">
+        @if (userRole === UserRole.OWNER) {
+          <h2>{{ 'home.features.withdrawOwnerTitle' | translate }}</h2>
+          <p>{{ 'home.features.withdrawOwnerMsg' | translate }}</p>
+        } @else {
+          <h2>{{ 'home.features.withdrawAdminTitle' | translate }}</h2>
+          <p>{{ 'home.features.withdrawAdminMsg' | translate }}</p>
+        }
+        <a routerLink="/bank-transfer" class="home__cta">{{ 'home.features.withdrawCta' | translate }}</a>
+      </div>
+    }
+  </div>
+</div>

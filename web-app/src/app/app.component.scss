@@ -1,0 +1,33 @@
+@use 'abstracts/variables' as var;
+
+.content {
+  flex: 1;
+  //overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.loading-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: var.$indigo-light;
+  animation: indeterminate-move 1.2s infinite cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes indeterminate-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}

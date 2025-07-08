@@ -1,0 +1,9 @@
+@if (isLoading()) {
+  <div class="loading-bar"></div>
+}
+@if (showHeader()) {
+  <app-header />
+}
+<div class="content">
+  <router-outlet />
+</div>

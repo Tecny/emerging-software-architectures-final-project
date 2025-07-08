@@ -1,0 +1,278 @@
+@use 'abstracts/variables' as var;
+@use 'components/button';
+@use 'components/spinner';
+
+.sportspace-card {
+  background-color: var(--space-bg-color);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(220px, 28vw, 320px);
+  max-width: 500px;
+  margin: 0 auto;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    cursor: pointer;
+  }
+
+  &__image-container {
+    height: 200px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .sportspace-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .sportspace-card__delete-btn {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      background: #e53935;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+      i {
+        color: #ffffff;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background-color: #e53935;
+
+        i {
+          transform: rotate(-10deg) scale(1.1);
+        }
+      }
+    }
+
+    .sportspace-card__dashboard-btn {
+      position: absolute;
+      top: 0.7rem;
+      right: 3.2rem;
+      background: #1976d2;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+      i {
+        color: #ffffff;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background-color: #1565c0;
+
+        i {
+          transform: rotate(-10deg) scale(1.1);
+        }
+      }
+    }
+
+    .sportspace-card__price-tag {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background: var.$green-medium;
+      color: #fff;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+  }
+
+  &__details {
+    background: var(--space-detail-bg-color);
+    padding: 1.1rem 1rem 1.3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(3px);
+
+    .sportspace-card__title {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 500;
+      color: var(--space-title-bg-color);
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sportspace-card__address {
+      font-size: clamp(0.75rem, 1.7vw, 0.92rem);
+      color: var(--space-address-color);
+      margin-top: 0.45rem;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      max-width: 95%;
+      min-height: 3em;
+      text-wrap: balance;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      i {
+        font-size: clamp(0.85rem, 2vw, 1.05rem);
+      }
+    }
+  }
+
+  &__image-container {
+    position: relative;
+
+    .sportspace-card__type-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// Medium tablets / laptops
+@media (max-width: 1024px) {
+  .sportspace-card {
+    min-height: 280px;
+    &__details {
+      padding: 1rem;
+
+      .sportspace-card__title {
+        font-size: 1.15rem;
+      }
+
+      .sportspace-card__address {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// Small tablets
+@media (max-width: 768px) {
+  .sportspace-card {
+    min-height: 260px;
+    &__details {
+      padding: 0.85rem;
+
+      .sportspace-card__title {
+        font-size: 1.05rem;
+      }
+
+      .sportspace-card__address {
+        font-size: 0.9rem;
+      }
+    }
+    &__image-container {
+      aspect-ratio: 3.5 / 2.5;
+    }
+  }
+}
+
+// Small phones
+@media (max-width: 600px) {
+  .sportspace-card {
+    min-height: 220px;
+
+    &__details {
+      padding: 0.85rem;
+
+      .sportspace-card__title {
+        font-size: 1.05rem;
+      }
+
+      .sportspace-card__address {
+        font-size: 0.88rem;
+      }
+    }
+
+    &__image-container {
+      height: 180px;
+      width: 100%;
+      overflow: hidden;
+
+      .sportspace-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// Extra small
+@media (max-width: 480px) {
+  .sportspace-card {
+    min-height: 190px; // más compacta
+
+    &__details {
+      padding: 0.7rem;
+
+      .sportspace-card__title {
+        font-size: 0.95rem;
+      }
+
+      .sportspace-card__address {
+        font-size: 0.8rem;
+      }
+    }
+
+    &__image-container {
+      aspect-ratio: 3 / 2.3;
+    }
+  }
+}
